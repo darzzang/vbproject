@@ -17,6 +17,7 @@
 		
 		<!-- visual & title Area --> 
 		<div class="visualArea">
+			<div class="dimArea"></div>
 			<div class="container">
 				<h1 class="move-up">예약 완료</h1>
 			</div>
