@@ -105,8 +105,6 @@
         						</form>
         					</div>
         				</div>
-        				
-        				<!-- 시간 선택 후 잔여 백신 수량 출력 -->
         				<div class="vacsInStock">
         					<p>잔여 백신 수량</p>
         					<ul>
