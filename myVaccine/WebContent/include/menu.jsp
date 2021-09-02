@@ -4,7 +4,8 @@
 <!-- 메뉴 클릭시 활성화 이벤트 -->
 <script type="text/javascript">
 $(document).ready(function() {
-
+	
+	/* 페이지가 이동하고 나서도 메뉴 활성화 유지 */
 	var url = location.href;
 	var navList1 = url.indexOf("booking");
 	var navList2 = url.indexOf("status");
@@ -18,13 +19,12 @@ $(document).ready(function() {
         $("#navStatus").addClass("active");
     }
     
+    /* 클릭 시 즉각 적용 */
 	 var navList = $(".nav-item");
 	 navList.find("a").click(function(){ 
 	 	navList.removeClass("active");
 		$(this).parent().addClass("active");
 	});
-
-	
 });	
 
 </script>
