@@ -7,7 +7,7 @@
     <div class="d-flex">
     	<ul class="navbar-nav me-auto">
     		<li class="nav-item"><a class="nav-link active" href="/booking.jsp">예약하기</a></li>
-    		<li class="nav-item"><a class="nav-link " href="#">예약 현황</a></li>
+    		<li class="nav-item"><a class="nav-link " href="/status.jsp">예약 현황</a></li>
     		<li class="nav-item"><a class="nav-link" href="#">예약 조회</a></li>
     		
     		<!-- 선택사항 -->
