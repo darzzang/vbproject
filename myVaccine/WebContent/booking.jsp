@@ -21,11 +21,6 @@
 				<h1 class="move-up">예약하기</h1>
 			</div>
 		</div>
-		<div class="visualArea">
-			<div class="container">
-				<h1 class="move-up">예약하기</h1>
-			</div>
-		</div>
 		<!-- 예약하기(form area) -->
 		<div class="pd formArea">
 			<div class="container">
