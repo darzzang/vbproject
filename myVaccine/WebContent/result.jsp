@@ -53,6 +53,8 @@
 				</div>
 			</div>
 		</div>
+		
+		
 		<!-- footer 영역(include 디렉티브 태그 이용) -->
 		<%@ include file="include/footer.jsp" %>
 	</div>
