@@ -128,6 +128,8 @@ footer p{margin-bottom:0;}
 /* status */
 .statusArea h2{margin-bottom:1em;}
 
+
+
 .statusArea .searchArea .form-group{max-height:auto;}
 .statusArea .searchArea .datePicker input, .statusArea .searchArea .timePicker select{width:50%;}
 .statusArea .searchArea .placePicker select{display:inline-block; width:32%;}
