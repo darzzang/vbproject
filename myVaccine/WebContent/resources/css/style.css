@@ -38,8 +38,7 @@ body{position:relative; z-index:1; font-family: 'Noto Sans KR', sans-serif;}
 .nav-item{margin-right:1.5em; font-size:1em;}
 .nav-item:last-child{margin-right:0;}
 
-.nav-item.active .nav-link{color:#000; font-weight:700; border-bottom:2px solid #000;}
-.nav-item.active .nav-link:hover{color:#000; font-weight:700; border-bottom:2px solid #000;}
+.nav-link.active{color:#000; font-weight:700; border-bottom:2px solid #000;}
 
 /* footer */
 footer{position:absolute; bottom:0; left:0; right:0; padding:1em 0; border-top:1px solid #ddd;}
@@ -88,14 +87,14 @@ footer p{margin-bottom:0;}
 
 /* modal */
 #bookingModal .modal-dialog{width:50%; max-width:50%;}
-#bookingModal .searchArea{border:1px solid #dee2e6;}
+#bookingModal .searchArea{border-bottom:1px solid #dee2e6;}
 #bookingModal .form-group{border:none;}
 #bookingModal .form-group .labelArea{height:auto; padding-top:0.75em; padding-bottom:0.75em; background:none;}
 #bookingModal .datePicker .inputArea input{width:33%;}
 #bookingModal .placePicker select{display:inline-block; width:32%;}
 #bookingModal .btnArea input{width:100%;}
 
-#bookingModal .SearchResultArea{margin-top:1.5em; display:none;}
+#bookingModal .SearchResultArea{margin-top:1.5em;}
 #bookingModal .instArea ul{padding:0;}
 #bookingModal .instArea ul li{list-style:none; border:1px solid #dee2e6; border-radius:10px; margin-bottom:0.25em;}
 #bookingModal .instArea ul li a{display:block; padding:1em; color:#000; text-decoration:none; transition: 0.3s;}
@@ -128,22 +127,12 @@ footer p{margin-bottom:0;}
 
 /* status */
 .statusArea h2{margin-bottom:1em;}
-.statusArea .searchArea{width:100%; margin:0 auto;}
+
+
+
 .statusArea .searchArea .form-group{max-height:auto;}
 .statusArea .searchArea .datePicker input, .statusArea .searchArea .timePicker select{width:50%;}
 .statusArea .searchArea .placePicker select{display:inline-block; width:32%;}
 
 .statusArea .searchArea .btnArea{margin-top:1.5em;}
 .statusArea .searchArea .btnArea input{width:100%;}
-
-.statusArea .searchResultArea{margin-top:3em; display:none;}
-.statusArea .searchResultArea .resultTitle{display:flex; align-items: center; justify-content: space-between;}
-.statusArea .searchResultArea .accordionArea p{font-size:1em; margin-bottom:0.5em;}
-.statusArea .searchResultArea .accordionArea h3{font-size:1.25em;}
-
-.statusArea .searchResultArea .accordion-body{padding:3em 5em;}
-.statusArea .searchResultArea .accordion-body h4{font-size:1.25em; font-weight:700; margin-bottom:1.25em;}
-.statusArea .searchResultArea .accordion-body dd{margin-bottom:1.5em;}
-.statusArea .searchResultArea .accordion-body table th{text-align:center;}
-.statusArea .searchResultArea .accordion-body table ul{padding-left:0; margin-bottom:0;}
-.statusArea .searchResultArea .accordion-body table ul li{list-style:none; display:inline-block; margin-right:2em;}

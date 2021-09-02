@@ -1,20 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<!-- (참고용) 검색 버튼 클릭 시 검색 결과 영역 출력 -->
-<script type="text/javascript">
-	
-	/* '검색' 버튼에 onclick으로 이벤트 설정 --> 추후에 유효성 검사 후 이벤트 재설정 필요! */
-	function showRes() {
-		if ($('#modalResult').css('display') == 'none') {
-			$('#modalResult').slideDown();
-		} else {
-			$('#modalResult').hide();
-		}
-	}
-</script>
-
-
 <div class="modal fade" id="bookingModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -53,7 +39,7 @@
 		        			</select>
 	        			</div>
 	        			<div class="col-sm-3 btnArea">
-		        			<input type="submit" value="검색" class="btn btn-outline-default" onclick="showRes()">
+		        			<input type="submit" value="검색" class="btn btn-outline-default">
 		        		</div>
 	        		</div>
         		</form>
@@ -61,7 +47,7 @@
         </div>
         
         
-        <div class="SearchResultArea" id="modalResult">
+        <div class="SearchResultArea">
         	<div class="container-fluid">
         		<div class="row">
         			<p>검색 결과 총 2개</p>
@@ -120,7 +106,11 @@
         					</div>
         				</div>
         				<div class="vacsInStock">
-        					<p>잔여 백신 수량: 20/30</p>
+        					<p>잔여 백신 수량</p>
+        					<ul>
+        						<li>모더나: 100개</li>
+        						<li>화이자: 100개</li>
+        					</ul>
         				</div>
         				
         			</div>
