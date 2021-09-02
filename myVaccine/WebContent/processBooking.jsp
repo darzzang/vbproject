@@ -42,12 +42,17 @@
 		pstmt.executeUpdate();
 		
 		//입력받은 값들을 누적해서 저장하는 table data
-		String data = "insert into data values(?, ?, ?, ?)";
+		String data = "insert into data values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		d_pstmt = conn.prepareStatement(data);
 		d_pstmt.setString(1, vaccine);
 		d_pstmt.setString(2, name);
-		d_pstmt.setString(3, idNum);
-		d_pstmt.setString(4, phone);
+		d_pstmt.setString(3, idNum1);
+		d_pstmt.setString(4, idNum2);
+		d_pstmt.setString(5, phone1);
+		d_pstmt.setString(6, phone2);
+		d_pstmt.setString(7, phone3);
+		d_pstmt.setString(8, idNum);
+		d_pstmt.setString(9, phone);
 		d_pstmt.executeUpdate();
 
 		if(pstmt != null) pstmt.close();
