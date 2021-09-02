@@ -118,3 +118,8 @@ footer p{margin-bottom:0;}
 #bookingModal .timeSelectArea input[type=radio]:checked + label{background: #26437e; color: #fff; opacity: 0.9;}
 #bookingModal .timeSelectArea label{font-weight:400; width:19%; margin-bottom:0.5em;}
 #bookingModal .timeSelectArea label:nth-of-type(5){margin-right:0;}
+
+#bookingModal .vacsInStock{margin-top:1em;}
+#bookingModal .vacsInStock p{font-weight:700; color:#26437e;}
+#bookingModal .vacsInStock ul{padding:0;}
+#bookingModal .vacsInStock ul li{list-style:none; display:inline-block; margin-right:1.5em;}
