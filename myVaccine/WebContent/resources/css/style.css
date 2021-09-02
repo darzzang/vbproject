@@ -123,3 +123,14 @@ footer p{margin-bottom:0;}
 #bookingModal .vacsInStock p{font-weight:700; color:#26437e;}
 #bookingModal .vacsInStock ul{padding:0;}
 #bookingModal .vacsInStock ul li{list-style:none; display:inline-block; margin-right:1.5em;}
+
+
+/* status */
+.statusArea h2{margin-bottom:1em;}
+
+.statusArea .searchArea .form-group{max-height:auto;}
+.statusArea .searchArea .datePicker input, .statusArea .searchArea .timePicker select{width:50%;}
+.statusArea .searchArea .placePicker select{display:inline-block; width:32%;}
+
+.statusArea .searchArea .btnArea{margin-top:1.5em;}
+.statusArea .searchArea .btnArea input{width:100%;}
