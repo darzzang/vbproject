@@ -25,7 +25,7 @@
 		
 		<!-- 예약하기(form area) -->
 		<div class="pd formArea">
-			<div class="container">
+			<div class="container"> 
 				<div class="row">
 					<div class="col-sm-8 offset-sm-2 noticeTextArea">
 						<p class="lgText">개인정보 수집 및 이용에 대한 안내</p>

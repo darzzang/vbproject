@@ -59,5 +59,5 @@ function CheckBooking() {
 		e.focus();
 		return false;
 	}
-	document.result.submit()
+	document.result.submit() 
 }
