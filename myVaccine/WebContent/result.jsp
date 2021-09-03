@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*" %>
-<%@ include file="dbconn.jsp" %>
 <%
 	request.setCharacterEncoding("utf-8");
 %>
@@ -19,6 +17,7 @@
 		
 		<!-- visual & title Area --> 
 		<div class="visualArea">
+			<div class="dimArea"></div>
 			<div class="container">
 				<h1 class="move-up">예약 완료</h1>
 			</div>
@@ -33,53 +32,38 @@
 					<h2>예약자 정보</h2>
 					<table class="table align-middle">
 						<tbody>
-							<%
-								PreparedStatement pstmt = null;
-								ResultSet rs = null;
-								String sql = "select * from vac";
-								pstmt = conn.prepareStatement(sql);
-								rs = pstmt.executeQuery();
-								while (rs.next()){
-									String vac = rs.getString("v_vaccine");
-									if(vac.equals("Moderna")) vac = "모더나";
-									if(vac.equals("Pfizer")) vac = "화이자";
-									
-									String name = rs.getString("v_name");
-									String idNum1 = rs.getString("v_idNum1");
-									String idNum2 = rs.getString("v_idNum2");
-									String phone1 = rs.getString("v_phone1");
-									String phone2 = rs.getString("v_phone2");
-									String phone3 = rs.getString("v_phone3");
-							%>
 							<tr>
 								<th>선택한 백신</th>
-								<td><%=vac %></td>
+								<td>모더나</td>
 							</tr>
 							<tr>
 								<th>이름</th>
-								<td><%=name %></td>
+								<td>신효행</td>
 							</tr>
 							<tr>
 								<th>주민등록번호</th>
-								<td><%=idNum1 %> - <%=idNum2 %><span>******</span></td>
+								<td>210830 - 2<span>******</span></td>
 							</tr>
 							<tr>
 								<th>휴대폰 번호</th>
-								<td><%=phone1 %> - <%=phone2 %> - <%=phone3 %></td>
+								<td>010 - 1234 - 5678</td>
 							</tr>
-							<%
-								}
-								if(rs != null) rs.close();
-								if(pstmt != null) pstmt.close();
-								if(conn != null) conn.close();
-							%>
 						</tbody>
 					</table>
 				</div>
+				<!--// 예약자 정보 영역(userArea) 종료-->
+				
+				<!-- 수정/확인/취소 버튼 추가(2021.09.03) -->
+				<!-- 페이지 구성 시 필요없는 버튼이 있으면 li 삭제 -->
+				<div class="btnArea">
+					<ul class="row justify-content-center">
+						<li class="col-3"><button class="btn btn-outline-default">수정</button></li>
+						<li class="col-3"><a href="#" class="btn btn-default">확인</a></li>
+						<li class="col-3"><a href="#" class="btn btn-secondary">취소</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
-		
-		
 		<!-- footer 영역(include 디렉티브 태그 이용) -->
 		<%@ include file="include/footer.jsp" %>
 	</div>
