@@ -61,7 +61,7 @@
 							</tr>
 							<tr>
 								<th>주민등록번호</th>
-								<td> <%=idNum1 %> - <%=idNum2 %><span>******</span></td>
+								<td><%=idNum1 %> - <%=idNum2 %><span>******</span></td>
 							</tr>
 							<tr>
 								<th>휴대폰 번호</th>
