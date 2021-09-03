@@ -13,3 +13,7 @@ create table if not exists institution(
 
 
 select * from institution;
+
+/* 테스트를 위한 데이터 입력 */
+insert into institution values('2021-09-03', '대구광역시', '동구', '동촌로', '79', '동구보건소','053-662-3201','평일 09:00 - 18:00',30, 30);
+
