@@ -18,6 +18,7 @@
 		
 		<!-- visual & title Area --> 
 		<div class="visualArea">
+			<div class="dimArea"></div>
 			<div class="container">
 				<h1 class="move-up">예약하기</h1>
 			</div>
@@ -29,11 +30,12 @@
 				<div class="row">
 					<div class="col-sm-8 offset-sm-2 noticeTextArea">
 						<p class="lgText">개인정보 수집 및 이용에 대한 안내</p>
-						<p>감염병의 예방 및 관리에 관한 법률 제33조의 4 및 같은 법 시행령 제32조의 3에 따라<br>코로나19 예방접종 예약신청을 위하여 다음의 개인정보를 수집합니다.</p>
+						<p>&ulcorner;감염병의 예방 및 관리에 관한 법률&lrcorner; 제33조의 4 및 같은 법 시행령 제32조의 3에 따라<br>코로나19 예방접종 예약신청을 위하여 다음의 개인정보를 수집합니다.</p>
 					</div>
 				</div>
 				
-				<form action="processBooking.jsp" method="post">//입력값을 데이터베이스에 저장하고 결과창에 출력하는 프로세스
+				<!-- 입력값을 데이터베이스에 저장하고 결과창에 출력하는 프로세스 -->
+				<form action="processBooking.jsp" method="post">
 					<div class="row">
 						<div class="col-sm-8 offset-sm-2 formAreaInner">
 							<div class="form-group row">
@@ -98,7 +100,7 @@
 									<label>의료기관 및 예약일시 선택<span class="require-mark">*</span></label>
 								</div>
 								<div class="col-sm-8 inputArea">
-									<input type="button" data-bs-toggle="modal" data-bs-target="#bookingModal" class="btn btn-outline-success" value="의료기관 찾기">
+									<input type="button" data-bs-toggle="modal" data-bs-target="#bookingModal" class="btn btn-outline-default" value="의료기관 찾기">
 									<!-- 선택 후 출력될 텍스트 -->
 									<!-- <ul class="resultText">
 										<li>예약일시: 2021.08.30</li>
@@ -109,7 +111,11 @@
 							
 							<div class="btnArea">
 								<ul class="row justify-content-center">
+
 									<li class="col-3"><input type="button" class="btn bookingBtn" value="예약" onclick="CheckBooking()"></li>
+
+									<li class="col-3"><input type="submit" class="btn btn-default" value="예약"></li>
+
 									<li class="col-3"><a href="#" class="btn btn-outline-secondary">취소</a></li>
 								</ul>
 							</div>

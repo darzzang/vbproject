@@ -46,7 +46,7 @@ function CheckBooking() {
 		alert("휴대폰 번호를 정확하게 입력하세요.");
 		name.select();
 		name.focus();
-		return false;
+		return false; 
 	}
 	
 	
