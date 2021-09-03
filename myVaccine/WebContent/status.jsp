@@ -9,6 +9,19 @@
 	<jsp:param name="title" value="백신예약: 예약 현황" />
 </jsp:include>
 
+<!-- (참고용) 검색 버튼 클릭 시 검색 결과 영역 출력 -->
+<script type="text/javascript">
+	
+	/* '검색' 버튼에 onclick으로 이벤트 설정 --> 추후에 유효성 검사 후 이벤트 재설정 필요! */
+	function showResult() {
+		if ($('#ResultArea').css('display') == 'none') {
+			$('#ResultArea').slideDown();
+		} else {
+			$('#ResultArea').hide();
+		}
+	}
+</script>
+
 
 <body>
 	<div class="wrapper">
@@ -30,7 +43,7 @@
 				<!-- 검색영역 시작 -->
 				<div class="searchArea">
 					<form>
-						<div class="col-sm-8 offset-sm-2 formAreaInner">
+						<div class="formAreaInner">
 							<!-- 백신 선택(checkbox, 필수) -->
 							<div class="form-group row">
 								<div class="col-sm-3 labelArea">
@@ -92,8 +105,9 @@
 							</div>
 
 							<!-- 검색 버튼 -->
-							<div class="col-sm-6 offset-sm-3 btnArea">
-								<input type="submit" value="검색" class="btn btn-default">
+							<div class="col-sm-4 offset-sm-4 btnArea">
+								<input type="submit" value="검색" class="btn btn-default" onclick="showResult()">
+
 							</div>
 						</div>
 					</form>
@@ -101,29 +115,153 @@
 				<!--// 검색영역 종료 -->
 
 				<!-- 검색 결과 영역 시작 -->
-				<h2>검색 결과</h2>
-				<div class="row searchResultArea">
-					<div class="col-sm-8 offset-sm-2">
-						<div class="row accordionArea">
-							<div class="accordion" id="accordionExample">
-								<div class="accordion-item">
-									<h3 class="accordion-header" id="headingOne">
-										<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">의료기관명</button>
-									</h3>
-									<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-										<div class="accordion-body">
-											진료시간, 잔여백신 등
+				<div class="row searchResultArea" id="ResultArea">
+					<div class="resultTitle">
+						<h2>검색 결과</h2>
+						<p>검색 결과 총 2건</p>
+					</div>
+					<div class="accordionArea">
+						<div class="accordion" id="accoResult">
+							<div class="accordion-item">
+								<div class="accordion-header" id="accoHead_1">
+									<div class="accordion-button" data-bs-toggle="collapse" data-bs-target="#accoBody_1" aria-expanded="true" aria-controls="accoBody_1">
+										<div>
+											<p>대구광역시 &gt; 동구</p>
+											<h3>의료기관명1</h3>
 										</div>
 									</div>
 								</div>
-								<div class="accordion-item">
-									<h3 class="accordion-header" id="headingTwo">
-										<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">의료기관명</button>
-									</h3>
-									<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-										<div class="accordion-body">
-											진료시간, 잔여백신 등
+								<div id="accoBody_1" class="accordion-collapse collapse show" aria-labelledby="accoHead_1" data-bs-parent="#accoResult">
+									<div class="accordion-body">
+										<div class="row">
+											<div class="col-sm-6">
+												<h4>의료기관 정보</h4>
+												<dl>
+													<dt>전화번호</dt>
+													<dd>053-000-0000</dd>
+													<dt>상세 주소</dt>
+													<dd>대구광역시 동구 ㅇㅇ동 ㅇㅇ길 000-1</dd>
+												</dl>
+											</div>
+											<div class="col-sm-6">
+												<h4>진료 시간 및 잔여 백신 수량</h4>
+												<table class="table table-bordered">
+													<thead class="table-light">
+														<tr>
+															<th>접종 가능 시간</th>
+															<th>잔여 백신 수량</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<th>09:00</th>
+															<td>
+																<ul>
+																	<li>모더나: 20/30</li>
+																	<li>화이자: 20/30</li>
+																</ul>
+															</td>
+														</tr>
+														<tr>
+															<th>10:00</th>
+															<td>
+																<ul>
+																	<li>모더나: 20/30</li>
+																	<li>화이자: 20/30</li>
+																</ul>
+															</td>
+														</tr>
+														<tr>
+															<th>11:00</th>
+															<td>
+																<ul>
+																	<li>모더나: 20/30</li>
+																	<li>화이자: 20/30</li>
+																</ul>
+															</td>
+														</tr>
+														<tr>
+															<th>12:00</th>
+															<td>
+																<ul>
+																	<li>모더나: 20/30</li>
+																	<li>화이자: 20/30</li>
+																</ul>
+															</td>
+														</tr>
+														<tr>
+															<th>13:00</th>
+															<td>
+																<ul>
+																	<li>모더나: 20/30</li>
+																	<li>화이자: 20/30</li>
+																</ul>
+															</td>
+														</tr>
+														<tr>
+															<th>14:00</th>
+															<td>
+																<ul>
+																	<li>모더나: 20/30</li>
+																	<li>화이자: 20/30</li>
+																</ul>
+															</td>
+														</tr>
+														<tr>
+															<th>15:00</th>
+															<td>
+																<ul>
+																	<li>모더나: 20/30</li>
+																	<li>화이자: 20/30</li>
+																</ul>
+															</td>
+														</tr>
+														<tr>
+															<th>16:00</th>
+															<td>
+																<ul>
+																	<li>모더나: 20/30</li>
+																	<li>화이자: 20/30</li>
+																</ul>
+															</td>
+														</tr>
+														<tr>
+															<th>17:00</th>
+															<td>
+																<ul>
+																	<li>모더나: 20/30</li>
+																	<li>화이자: 20/30</li>
+																</ul>
+															</td>
+														</tr>
+														<tr>
+															<th>18:00</th>
+															<td>
+																<ul>
+																	<li>모더나: 20/30</li>
+																	<li>화이자: 20/30</li>
+																</ul>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
 										</div>
+									</div>
+								</div>
+							</div>
+							<div class="accordion-item">
+								<div class="accordion-header" id="accoHead_2">
+									<div class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accoBody_2" aria-expanded="false" aria-controls="accoBody_2">
+										<div>
+											<h3>의료기관명2</h3>
+											<p>대구광역시 &gt; 동구</p>
+										</div>
+									</div>
+								</div>
+								<div id="accoBody_2" class="accordion-collapse collapse" aria-labelledby="accoHead_2" data-bs-parent="#accoResult">
+									<div class="accordion-body">
+										본문 영역2222
 									</div>
 								</div>
 							</div>
@@ -133,9 +271,8 @@
 				</div>
 			</div>
 
-
-			<!-- footer 영역(include 디렉티브 태그 이용) -->
-			<%@ include file="include/footer.jsp"%>
-		</div>
+		<!-- footer 영역(include 디렉티브 태그 이용) -->
+		<%@ include file="include/footer.jsp"%>
+	</div>
 </body>
 </html>
