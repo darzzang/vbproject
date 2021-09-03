@@ -111,15 +111,7 @@
 							
 							<div class="btnArea">
 								<ul class="row justify-content-center">
-
-
-									<li class="col-3"><input type="button" class="btn bookingBtn" value="예약" onclick="CheckBooking()"></li>
-
-									<li class="col-3"><input type="submit" class="btn btn-default" value="예약"></li>
-
-
-									<li class="col-3"><input type="submit" class="btn btn-default" value="예약"></li>
-
+									<li class="col-3"><input type="button" class="btn bookingBtn" value="예약" onclick="checkBooking()"></li>
 									<li class="col-3"><a href="#" class="btn btn-outline-secondary">취소</a></li>
 								</ul>
 							</div>
