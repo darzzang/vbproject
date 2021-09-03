@@ -8,6 +8,7 @@
 <jsp:include page="include/head.jsp">
 	<jsp:param name="title" value="백신예약: 예약하기" />
 </jsp:include>
+<script type="text/javascript" src="./resources/js/validation.js"></script>
 
 
 <body>
@@ -51,7 +52,7 @@
 									<label>예약자 이름<span class="require-mark">*</span></label>
 								</div>
 								<div class="col-sm-8 inputArea">
-									<input type="text" name="name" class="form-control" required>
+									<input type="text" id="name" name="name" class="form-control" required>
 									<p class="alertText" id="nameError">* 이름에는 한글만 사용 가능합니다</p>
 								</div>
 							</div>
@@ -62,11 +63,11 @@
 								<div class="col-sm-8 inputArea">
 									<div class="row idNumArea">
 										<div class="col-4">
-											<input type="text" name="idNum1" maxlength="6" size="6" class="form-control idNum-01" required>
+											<input type="text" id="idNum1" name="idNum1" maxlength="6" size="6" class="form-control idNum-01" required>
 										</div> 
 										<span class="col-1 align-center">-</span> 
 										<div class="col-2">
-											<input type="text" name="idNum2" maxlength="1" size="1" class="form-control idNum-02" required>
+											<input type="text" id="idNum2" name="idNum2" maxlength="1" size="1" class="form-control idNum-02" required>
 										</div>
 										<span class="col-5">******</span>
 									</div>
@@ -79,15 +80,15 @@
 								<div class="col-sm-8 inputArea">
 									<div class="row phnNumArea">
 										<div class="col-3">
-											<input type="text" name="phone1" maxlength="3" size="4" class="form-control" required>
+											<input type="text" id="phone1" name="phone1" maxlength="3" size="4" class="form-control" required>
 										</div>
 										<span class="col-1 align-center">-</span>
 										<div class="col-3">
-											<input type="text" name="phone2" maxlength="4" size="4" class="form-control" required>
+											<input type="text" id="phone2" name="phone2" maxlength="4" size="4" class="form-control" required>
 										</div>
 										<span class="col-1 align-center">-</span>
 										<div class="col-3">
-											<input type="text" name="phone3" maxlength="4" size="4" class="form-control" required>
+											<input type="text" id="phone3" name="phone3" maxlength="4" size="4" class="form-control" required>
 										</div>
 									</div>
 								</div>
@@ -108,7 +109,7 @@
 							
 							<div class="btnArea">
 								<ul class="row justify-content-center">
-									<li class="col-3"><input type="submit" class="btn bookingBtn" value="예약"></li>
+									<li class="col-3"><input type="button" class="btn bookingBtn" value="예약" onclick="CheckBooking()"></li>
 									<li class="col-3"><a href="#" class="btn btn-outline-secondary">취소</a></li>
 								</ul>
 							</div>
