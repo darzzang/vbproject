@@ -18,7 +18,6 @@ function checkBooking(){
 	
 	
 	//이름 체크
-
 	if (!regExpName.test(name)) {
 		console.log("test1: 이름 체크");
 		alert("이름은 한글만 사용 가능합니다.");

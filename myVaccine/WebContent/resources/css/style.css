@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 @charset "UTF-8";
 
 /* common */ 
@@ -212,5 +212,8 @@ footer p{margin-bottom:0;}
 .loginArea .form-group .labelArea{background:none; height:auto;}
 
 .loginArea .btnArea{margin-top:2em;}
+
 .loginArea .btnArea input[type=submit]{width:100%;}
->>>>>>> branch 'master' of https://github.com/darzzang/vbproject.git
+
+.loginArea .btnArea input[type=submit]{width:100%;}
+
