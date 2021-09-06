@@ -76,6 +76,15 @@
 						</tbody>
 					</table>
 				</div>
+				<!-- 수정/확인/취소 버튼 추가(2021.09.03) -->
+				<!-- 페이지 구성 시 필요없는 버튼이 있으면 li 삭제 -->
+				<div class="btnArea">
+					<ul class="row justify-content-center">
+						<li class="col-3"><button class="btn btn-outline-default">수정</button></li>
+						<li class="col-3"><a href="#" class="btn btn-default">확인</a></li>
+						<li class="col-3"><a href="#" class="btn btn-secondary">취소</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 		
