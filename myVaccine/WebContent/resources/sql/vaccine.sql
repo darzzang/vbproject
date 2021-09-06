@@ -14,7 +14,6 @@ select * from vaccine;
 /* 기관 이름을 FK로 지정 */
 alter table vaccine add foreign key(vac_inst) references institution(p_instName);
 
-
 /* 테스트를 위한 데이터 입력 */
 insert into vaccine values('동구보건소', '09:00:00', 30, 25, 30, 30);
 insert into vaccine values('동구보건소', '10:00:00', 30, 30, 30, 30);
