@@ -52,10 +52,6 @@
 									String phone3 = rs.getString("v_phone3");
 							%>
 							<tr>
-								<th>선택한 백신</th>
-								<td><%=vac %></td>
-							</tr>
-							<tr>
 								<th>이름</th>
 								<td><%=name %></td>
 							</tr>
@@ -66,6 +62,26 @@
 							<tr>
 								<th>휴대폰 번호</th>
 								<td><%=phone1 %> - <%=phone2 %> - <%=phone3 %></td>
+							</tr>
+							
+						</tbody>
+					</table>
+				</div>
+				<div class="infoArea userArea">
+					<h2>예약 정보</h2>
+					<table class="table align-middle">
+						<tbody>
+							<tr>
+								<th>선택한 백신</th>
+								<td><%=vac %></td>
+							</tr>
+							<tr>
+								<th>의료기관</th>
+								<td>의료기관명 : </td>
+							</tr>
+							<tr>
+								<th>접종일시</th>
+								<td style="color:#0048F5"> </td>
 							</tr>
 							<%
 								}

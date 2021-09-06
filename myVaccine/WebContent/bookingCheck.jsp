@@ -26,16 +26,12 @@
 		<div class="pd bookingCheckArea">
 			<div class="container">
 				<div class="row">
+					
+					<!-- 조회처리페이지 0906-->
 					<form action="processChecking.jsp" method="post">
 						<div class="loginArea col-sm-6 offset-sm-3">
-							<div class="form-group row">
-								<div class="col-sm-3 labelArea">
-									<label>이름</label>
-								</div>
-								<div class="col-sm-9 inputArea">
-									<input type="text"  name="name" class="form-control" required>
-								</div>
-							</div>
+							
+							<!-- 이름 항목 제거 0906-->
 							<div class="form-group row">
 								<div class="col-sm-3 labelArea">
 									<label>휴대폰 번호</label>

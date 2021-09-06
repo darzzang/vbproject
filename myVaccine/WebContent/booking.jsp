@@ -35,7 +35,7 @@
 				</div>
 				
 				<!-- 입력값을 데이터베이스에 저장하고 결과창에 출력하는 프로세스 -->
-				<form name = "newBooking" action="processBooking.jsp" method="post">
+				<form name="newBooking" action="processBooking.jsp" method="post">
 					<div class="row">
 						<div class="col-sm-8 offset-sm-2 formAreaInner">
 							<div class="form-group row">
