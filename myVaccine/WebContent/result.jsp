@@ -33,10 +33,6 @@
 					<table class="table align-middle">
 						<tbody>
 							<tr>
-								<th>선택한 백신</th>
-								<td>모더나</td>
-							</tr>
-							<tr>
 								<th>이름</th>
 								<td>신효행</td>
 							</tr>
@@ -47,6 +43,27 @@
 							<tr>
 								<th>휴대폰 번호</th>
 								<td>010 - 1234 - 5678</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<!-- 예약 정보 영역 -->
+				<div class="infoArea userArea">
+					<h2>예약 정보</h2>
+					<table class="table align-middle">
+						<tbody>
+							<tr>
+								<th>선택한 백신</th>
+								<td>모더나</td>
+							</tr>
+							<tr>
+								<th>의료기관</th>
+								<td>의료기관명 : </td>
+							</tr>
+							<tr>
+								<th>접종일시</th>
+								<td style="color:#0048F5"> </td>
 							</tr>
 						</tbody>
 					</table>
