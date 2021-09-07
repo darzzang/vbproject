@@ -14,7 +14,7 @@ $(function() {
 	    showWeekDays : true ,// 위에 요일 보여주는 옵션 기본값 : true
 	    todayHighlight : true ,	//오늘 날짜에 하이라이팅 기능 기본값 :false 
 	    weekStart : 0 ,//달력 시작 요일 선택하는 것 기본값은 0인 일요일 
-	    //language : "ko"	//달력의 언어 선택, 그에 맞는 js로 교체해줘야한다.
+	    language : "ko"	//달력의 언어 선택, 그에 맞는 js로 교체해줘야한다.
 	});//datepicker end
 	
 	$('#datePicker2').datepicker({
@@ -32,6 +32,6 @@ $(function() {
 	    showWeekDays : true ,// 위에 요일 보여주는 옵션 기본값 : true
 	    todayHighlight : true ,	//오늘 날짜에 하이라이팅 기능 기본값 :false 
 	    weekStart : 0 ,//달력 시작 요일 선택하는 것 기본값은 0인 일요일 
-	    //language : "ko"	//달력의 언어 선택, 그에 맞는 js로 교체해줘야한다.
+	    language : "ko"	//달력의 언어 선택, 그에 맞는 js로 교체해줘야한다.
 	});//datepicker2 end	
 });//ready end
