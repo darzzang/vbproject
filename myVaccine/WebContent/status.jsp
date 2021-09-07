@@ -7,6 +7,12 @@
 <jsp:include page="include/head.jsp">
 	<jsp:param name="title" value="백신예약: 예약 현황" />
 </jsp:include>
+
+<!-- datepicker sources -->
+<script src="resources/js/bootstrap-datepicker.js"></script>
+<script src="resources/js/bootstrap-datepicker.ko.min.js"></script>
+<script src="resources/js/datepicker_custom.js"></script>
+
 <!-- (참고용) 검색 버튼 클릭 시 검색 결과 영역 출력 -->
 <script type="text/javascript">
 	
@@ -59,7 +65,7 @@
 									<label>날짜 선택<span class="require-mark">*</span></label>
 								</div>
 								<div class="col-sm-9 inputArea">
-									<input type="date" class="form-control" required>
+									<input type="text" class="form-control datePickerInput" id="datePicker2" required>
 								</div>
 							</div>
 							<!-- 시간 선택(선택) -->

@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<!-- datepicker sources -->
+<script src="resources/js/bootstrap-datepicker.js"></script>
+<script src="resources/js/bootstrap-datepicker.ko.min.js"></script>
+<script src="resources/js/datepicker_custom.js"></script>
+
 <!-- (참고용) 검색 버튼 클릭 시 검색 결과 영역 출력 -->
 <script type="text/javascript">
 	
@@ -31,7 +36,7 @@
 							<label>날짜 선택<span class="require-mark">*</span></label>
 						</div>
 						<div class="col-sm-10 inputArea">
-							<input type="date" class="form-control" required>
+							<input type="text" class="form-control datePickerInput" id="datePicker" required>
 						</div>
 	        		</div>
 	        		<div class="form-group row placePicker">
