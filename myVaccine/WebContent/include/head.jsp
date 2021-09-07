@@ -9,6 +9,7 @@
 		
 		<!-- css -->
 		<link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link href="resources/css/bootstrap-datepicker.css" rel="stylesheet" type="text/css">
 		<link href="resources/css/fontawesome_all.css" rel="stylesheet" type="text/css">
 		<link href="resources/css/style.css" rel="stylesheet" type="text/css">
 		<link href="resources/css/animation.css" rel="stylesheet" type="text/css">
