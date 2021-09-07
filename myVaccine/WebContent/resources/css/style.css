@@ -1,10 +1,14 @@
 @charset "UTF-8";
+
+
 /* common */ 
 html, body {margin: 0; padding: 0; height: 100%;}
 html {position: relative;}
 body{position:relative; z-index:1; font-family: 'Noto Sans KR', sans-serif;}
 .wrapper{ min-height: 100%; position: relative; padding-bottom:56px;}
 .pd{padding:5em 0;}
+
+
 /* main(index.jsp) */
 .main .visualArea .dimArea{position:absolute; z-index:3; width:100%; height:100%; background:rgba(38, 67, 126, 0.9); top:0; left:0; right:0; bottom:0;}
 .main .visualArea{position:fixed; width:100%; height:100%; background:url(../img/bg1.jpg) no-repeat bottom center; background-size:cover; display: flex; align-items: center; justify-content: center;}
@@ -15,16 +19,22 @@ body{position:relative; z-index:1; font-family: 'Noto Sans KR', sans-serif;}
 .main .btnArea a{display:block; width:100%; border:1px solid #fff; color:#fff; border-radius:10px; padding:0.75em; text-decoration:none; transition: 0.3s;}
 .main .btnArea a:hover{background:#fff; color:rgba(38, 67, 126, 0.9)}
 .main footer{border-top:0; color:#fff;}
+
+
 /* 텍스트 정렬 시 추가 */
 .align-left{text-align:left;}
 .align-center{text-align:center;}
 .align-right{text-align:right;}
+
+
 /* 디폴트 버튼 */
 .btn-outline-default{border:1px solid #26437e; color:#26437e; transition:0.3s;}
 .btn-outline-default:hover{background: #26437e; color: #fff; opacity: 0.9;}
 .btn-default{background: #26437e; color: #fff; opacity: 0.9; transition:0.3s;}
 .btn-default:hover{opacity:1; color:#fff;}
 .alertText{color:#dc3545; font-size:0.75em; margin-top:0.5em; margin-bottom:0;}
+
+
 /* nav(메뉴 영역) */ 
 .navbar {width:100%; z-index:100; padding:0.75em 0; border-bottom:1px solid #cdcdcd; background:#fff;}
 .navbar-nav{flex-direction:inherit;}
@@ -32,13 +42,19 @@ body{position:relative; z-index:1; font-family: 'Noto Sans KR', sans-serif;}
 .nav-item:last-child{margin-right:0;}
 .nav-item.active .nav-link{color:#000; font-weight:700; border-bottom:2px solid #000;}
 .nav-item.active .nav-link:hover{color:#000; font-weight:700; border-bottom:2px solid #000;}
+
+
 /* footer */
 footer{position:absolute; bottom:0; left:0; right:0; padding:1em 0; border-top:1px solid #ddd;}
 footer p{margin-bottom:0;}
+
+
 /* title area */
 .visualArea{position:relative; width:100%; height:180px; background:#26437e; color:#fff; display: flex; align-items: center; justify-content: center;}
 .visualArea .dimArea{position:absolute; z-index:3; width:100%; height:100%; background:url(../img/bg2.png) no-repeat center center; background-size:cover; top:0; left:0; right:0; bottom:0;}
 .visualArea h1{position:relative; z-index:5; text-align:center;}
+
+
 /* form area */
 .noticeTextArea{background:#f8f9fa; padding:1.5em; margin-bottom:1.5em; text-align:center;}
 .noticeTextArea p{margin-bottom:0; color:#333;}
@@ -64,15 +80,20 @@ footer p{margin-bottom:0;}
 .formArea .btnArea .bookingBtn{background:#26437e; color:#fff; opacity: 0.9; transition: 0.3s;}
 .formArea .btnArea .bookingBtn:hover{opacity: 1;}
 .formArea .btnArea li input,.formArea .btnArea li a{display:inline-block; width:100%;}
+
+
 /* infoArea */
 .resultArea h2{margin-bottom:1em;}
+.infoArea{margin-bottom:4em;}
 .infoArea table{border-top:1px solid #ddd;}
 .infoArea table th{background:#f8f9fa; padding-top:1.25em; padding-bottom:1.25em; width:20%;}
+
 
 .resultArea .btnArea{margin-top:3em;}
 .resultArea .btnArea ul{padding-left:0;}
 .resultArea .btnArea ul li{list-style:none;}
 .resultArea .btnArea ul li button, .resultArea .btnArea ul li a{width:100%;}
+
 
 /* modal */
 #bookingModal .modal-dialog{width:50%; max-width:50%;}
@@ -85,10 +106,10 @@ footer p{margin-bottom:0;}
 #bookingModal .SearchResultArea{margin-top:1.5em; display:none;}
 #bookingModal .instArea ul{padding:0;}
 #bookingModal .instArea ul li{list-style:none; border:1px solid #dee2e6; border-radius:10px; margin-bottom:0.25em;}
-#bookingModal .instArea ul li a{display:block; padding:1em; color:#000; text-decoration:none; transition: 0.3s;}
-#bookingModal .instArea ul li a:hover,.instArea ul li.active a{background:#dee2e6;  }
-#bookingModal .instArea ul li a span{display:block; font-weight:700;}
-#bookingModal .instArea ul li a span.lilText{font-size:0.75em; color:#333; font-weight:400;}
+#bookingModal .instArea ul li button{display:block; padding:1em; color:#000; text-decoration:none; transition: 0.3s; background:none; border:none; width:100%; text-align:left;}
+#bookingModal .instArea ul li button:hover,.instArea ul li.active button{background:#dee2e6;  }
+#bookingModal .instArea ul li button span{display:block; font-weight:700;}
+#bookingModal .instArea ul li button span.lilText{font-size:0.75em; color:#333; font-weight:400;}
 #bookingModal .infoArea .titleArea{margin-bottom:1em; border-bottom:1px solid #dee2e6;}
 #bookingModal .infoArea .titleArea p{margin-bottom:0.5em; color:#555;}
 #bookingModal .infoArea .titleArea p.title{font-weight:700; font-size:1.25em; color:#000;}
@@ -106,6 +127,9 @@ footer p{margin-bottom:0;}
 #bookingModal .vacsInStock p{font-weight:700; color:#26437e;}
 #bookingModal .vacsInStock ul{padding:0;}
 #bookingModal .vacsInStock ul li{list-style:none; display:inline-block; margin-right:1.5em;}
+#bookingModal .infoArea{margin-bottom:0;}
+
+
 /* status */
 .statusArea h2{margin-bottom:1em;}
 .statusArea .searchArea .form-group{margin-left:0; margin-right:0; }
@@ -134,3 +158,33 @@ footer p{margin-bottom:0;}
 
 .loginArea .btnArea{margin-top:2em;}
 .loginArea .btnArea input[type=submit]{width:100%;}
+
+
+/* datepicker */
+ .datePickerInput{background:url(/resources/img/cal.svg) no-repeat 95% center; background-size:16px 16px;}
+ 
+ 
+ /* datepicker calendar customize */
+.datepicker {border-radius: 0; padding: 2px; background-clip:inherit;}
+.datepicker-days table thead, .datepicker-days table tbody{padding: 10px; display: list-item;}
+.datepicker-days table thead, .datepicker-months table thead, .datepicker-years table thead, .datepicker-decades table thead, .datepicker-centuries table thead {background: #26437e; color: #ffffff; border-radius: 0;}
+.datepicker-days table thead tr:nth-child(2n+0) td, .datepicker-days table thead tr:nth-child(2n+0) th {border-radius: 3px;}
+.datepicker-days table thead tr:nth-child(3n+0) {text-transform: uppercase; font-weight: 300 !important; font-size: 12px; color: rgba(255, 255, 255, 0.7);}
+.table-condensed > tbody > tr > td, .table-condensed > tbody > tr > th, .table-condensed > tfoot > tr > td, .table-condensed > tfoot > tr > th, .table-condensed > thead > tr > td, .table-condensed > thead > tr > th {padding: 10px 12px;}
+.table-condensed > thead > tr > th{padding: 10px 13px !important; font-size: 1em;}
+.datepicker-months table thead td, .datepicker-months table thead th, .datepicker-years table thead td, .datepicker-years table thead th, .datepicker-decades table thead td, .datepicker-decades table thead th, .datepicker-centuries table thead td, .datepicker-centuries table thead th {border-radius: 0;}
+.datepicker td, .datepicker th {border-radius: 50%; padding: 0 12px; font-size:0.75em;}
+.datepicker-days table thead, .datepicker-months table thead, .datepicker-years table thead, .datepicker-decades table thead, .datepicker-centuries table thead {background: #26437e; color: #ffffff; border-radius: 0;}
+.datepicker table tr td.active, .datepicker table tr td.active:hover, .datepicker table tr td.active.disabled, .datepicker table tr td.active.disabled:hover {background-image: none;}
+.datepicker .prev, .datepicker .next {color: rgba(255, 255, 255, 0.5); transition: 0.3s; width: 37px; height: 37px; font-size:1.25em;}
+.datepicker .prev:hover, .datepicker .next:hover {background: transparent;color: rgba(255, 255, 255, 0.99); font-size:1.25em; font-weight:inherit;}
+.datepicker .datepicker-switch {font-size: 1.25em; font-weight:700; transition: 0.3s;}
+.datepicker .datepicker-switch:hover {color: rgba(255, 255, 255, 0.7);background: transparent;}
+.datepicker table tr td span {border-radius: 2px; margin: 3%; width: 27%;}
+.datepicker table tr td span.active, .datepicker table tr td span.active:hover, .datepicker table tr td span.active.disabled, .datepicker table tr td span.active.disabled:hover {background-color: #26437e; background-image: none;}
+.dropdown-menu {border: 1px solid rgba(0,0,0,.1); box-shadow: 0 6px 12px rgba(0,0,0,.175);}
+.datepicker-dropdown.datepicker-orient-top:before {border-top: 7px solid rgba(0,0,0,.1);}
+.datepicker table tr td.today, .datepicker table tr td.today.disabled{background:#26437e !important; color:#fff; opacity:0.9; transition: 0.3s;}
+.datepicker table tr td.today:hover, datepicker table tr td.today.disabled:hover{color:#fff !important; opacity:1 !important; }
+.datepicker table tr td.active:hover, .datepicker table tr td.active:hover:hover, .datepicker table tr td.active.disabled:hover, .datepicker table tr td.active.disabled:hover:hover, .datepicker table tr td.active:active, .datepicker table tr td.active:hover:active, .datepicker table tr td.active.disabled:active, .datepicker table tr td.active.disabled:hover:active, .datepicker table tr td.active.active, .datepicker table tr td.active:hover.active, .datepicker table tr td.active.disabled.active, .datepicker table tr td.active.disabled:hover.active, .datepicker table tr td.active.disabled, .datepicker table tr td.active:hover.disabled, .datepicker table tr td.active.disabled.disabled, .datepicker table tr td.active.disabled:hover.disabled, .datepicker table tr td.active[disabled], .datepicker table tr td.active:hover[disabled], .datepicker table tr td.active.disabled[disabled], .datepicker table tr td.active.disabled:hover[disabled]{background:#8fdddf !important;}
+.datepicker .prev.disabled, .datepicker .next.disabled{visibility: visible; background: #26437e;}
