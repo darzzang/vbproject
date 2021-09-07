@@ -70,7 +70,7 @@
 				</div>
 				
 				<!-- 예약 정보 영역 -->
-				<div class="infoArea userArea">
+				<div class="infoArea vacArea">
 					<h2>예약 정보</h2>
 					<table class="table align-middle">
 						<tbody>
@@ -80,10 +80,14 @@
 							</tr>
 							<tr>
 								<th>의료기관</th>
-								<td>의료기관명 : </td>
+								<td>의료기관명</td>
 							</tr>
 							<tr>
-								<th>접종일시</th>
+								<th>1차 접종일시</th>
+								<td style="color:#0048F5"> </td>
+							</tr>
+							<tr>
+								<th>2차 접종일시</th>
 								<td style="color:#0048F5"> </td>
 							</tr>
 							<%
