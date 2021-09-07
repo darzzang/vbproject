@@ -74,16 +74,16 @@
         			<div class="col-sm-4 instArea">
         				<ul>
         					<li class="active">
-        						<a href="#">
+        						<button>
         							<span class="lilText">대구광역시 &gt; 동구</span>
         							<span>동구보건소</span>
-        						</a>
+        						</button>
         					</li>
         					<li>
-        						<a href="#">
+        						<button>
         							<span class="lilText">대구광역시 &gt; 동구</span>
         							<span>동구 예방접종센터</span>
-        						</a>
+        						</button>
         					</li>
         				</ul>
         			</div>
