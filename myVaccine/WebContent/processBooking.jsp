@@ -22,8 +22,11 @@
 		String idNum = idNum1 + idNum2;						//주민번호 7자리
 		String phone = phone1 + phone2 + phone3;			//폰 번호
 		
+		//데이터베이스 테이블은 vac 와 data 두개를 사용합니다
+		//테이블 data는 입력받은 예약들을 누적해서 insert해 가는 테이블입니다(흔히 생각하는 예약자 목록)
+		//테이블 vac는 예약자 한명의 데이터를 임시로 저장하는 테이블입니다(result에 표시되는 정보가 이 테이블에 있는 정보입니다)
+		
 		PreparedStatement pstmt = null;
-		PreparedStatement d_pstmt = null;
 		
 		String delete = "delete from vac";
 		pstmt = conn.prepareStatement(delete);
@@ -43,17 +46,17 @@
 		
 		//입력받은 값들을 누적해서 저장하는 table data
 		String data = "insert into data values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		d_pstmt = conn.prepareStatement(data);
-		d_pstmt.setString(1, vaccine);
-		d_pstmt.setString(2, name);
-		d_pstmt.setString(3, idNum1);
-		d_pstmt.setString(4, idNum2);
-		d_pstmt.setString(5, phone1);
-		d_pstmt.setString(6, phone2);
-		d_pstmt.setString(7, phone3);
-		d_pstmt.setString(8, idNum);
-		d_pstmt.setString(9, phone);
-		d_pstmt.executeUpdate();
+		pstmt = conn.prepareStatement(data);
+		pstmt.setString(1, vaccine);
+		pstmt.setString(2, name);
+		pstmt.setString(3, idNum1);
+		pstmt.setString(4, idNum2);
+		pstmt.setString(5, phone1);
+		pstmt.setString(6, phone2);
+		pstmt.setString(7, phone3);
+		pstmt.setString(8, idNum);
+		pstmt.setString(9, phone);
+		pstmt.executeUpdate();
 		
 		if(pstmt != null) pstmt.close();
 		if(conn != null) conn.close();
