@@ -36,7 +36,7 @@
 							<label>날짜 선택<span class="require-mark">*</span></label>
 						</div>
 						<div class="col-sm-10 inputArea">
-							<input type="text" class="form-control datePickerInput" id="datePicker" required>
+							<input type="text" class="form-control datePickerInput" name="date" id="datePicker" required>
 						</div>
 	        		</div>
 	        		<div class="form-group row placePicker">
@@ -44,18 +44,18 @@
 							<label>기관 선택<span class="require-mark">*</span></label>
 						</div>
 	        			<div class="col-sm-7 inputArea">
-	        				<select class="form-select" required>
+	        				<select class="form-select" name="addr1" required>
 	        					<option selected>광역시도</option>
-	        					<option>대구광역시</option>
+	        					<option value="대구광역시">대구광역시</option>
 		        			</select>
-		        			<select class="form-select" required>
+		        			<select class="form-select" name="addr2" required>
 		        				<option selected>시군구</option>
-		        				<option>동구</option>
+		        				<option value="동구">동구</option>
 		        			</select>
-		        			<select class="form-select" required>
+		        			<select class="form-select" name="addr3" required>
 		        				<option selected>읍면동</option>
-		        				<option>검사동</option>
-		        				<option>효목동</option>
+		        				<option value="검사동">검사동</option>
+		        				<option value="효목동">효목동</option>
 		        			</select>
 	        			</div>
 	        			<div class="col-sm-3 btnArea">
