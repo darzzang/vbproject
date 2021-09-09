@@ -73,6 +73,8 @@
 										</div>
 										<span class="col-5">******</span>
 									</div>
+									<p class="alertText" id="birthError">* 주민등록번호 앞자리는 6개의 숫자만 입력 가능합니다</p>
+									<p class="alertText" id="genError">* 주민등록번호 뒷자리는 1,2,3,4만 입력 가능합니다</p>
 								</div>
 							</div>
 							<div class="form-group row">
@@ -93,6 +95,7 @@
 											<input type="text" id="phone3" name="phone3" maxlength="4" size="4" class="form-control" required>
 										</div>
 									</div>
+									<p class="alertText" id="phnError">* 휴대폰 번호를 정확하게 입력하세요</p>
 								</div>
 							</div>
 							<div class="form-group row">
@@ -121,8 +124,8 @@
 			</div>
 		</div>
 		
-		<!-- 의료기관 찾기 창(modal) -->
-		<%@ include file="modal.jsp" %>
+		<!-- 의료기관 찾기 창(modal)/DB 연결 작업을 위한 경로 변경 -->
+		<%@ include file="modal_haeng.jsp" %>
 		
 		<!-- footer 영역(include 디렉티브 태그 이용) -->
 		<%@ include file="include/footer.jsp" %>
