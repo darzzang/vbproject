@@ -32,7 +32,7 @@ body{position:relative; z-index:1; font-family: 'Noto Sans KR', sans-serif;}
 .btn-outline-default:hover{background: #26437e; color: #fff; opacity: 0.9;}
 .btn-default{background: #26437e; color: #fff; opacity: 0.9; transition:0.3s;}
 .btn-default:hover{opacity:1; color:#fff;}
-.alertText{color:#dc3545; font-size:0.75em; margin-top:0.5em; margin-bottom:0;}
+.alertText{display:none; color:#dc3545; font-size:0.75em; margin-top:0.5em; margin-bottom:0;}
 
 
 /* nav(메뉴 영역) */ 
