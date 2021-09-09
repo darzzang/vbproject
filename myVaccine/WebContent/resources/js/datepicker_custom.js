@@ -34,4 +34,14 @@ $(function() {
 	    weekStart : 0 ,//달력 시작 요일 선택하는 것 기본값은 0인 일요일 
 	    language : "ko"	//달력의 언어 선택, 그에 맞는 js로 교체해줘야한다.
 	});//datepicker2 end	
+	
+	
+	// 기본값으로 오늘 날짜 선택
+	var date = new Date();
+	var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+	
+	console.log(today); 
+	$("#datePicker, #datePicker2").datepicker( 'setDate', today );
+	console.log("setDate success!");
+	
 });//ready end
