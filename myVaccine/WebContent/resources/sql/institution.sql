@@ -24,3 +24,7 @@ insert into institution values('2021-09-03', '대구광역시', '동구', '효�
 SELECT * FROM institution JOIN vaccine ON institution.p_instName=vaccine.vac_inst;
 
 
+/* vaccine 테이블 생성(의료기관+백신DB 테이블) */
+CREATE TABLE IF NOT EXISTS VaccineTBL SELECT * FROM institution JOIN vaccine ON institution.p_instName=vaccine.vac_inst;
+select * from VaccineTBL;
+
