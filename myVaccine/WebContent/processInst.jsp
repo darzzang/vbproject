@@ -10,12 +10,11 @@
 		String addr2 = request.getParameter("addr2"); // 주소2(시군구)
 		String addr3 = request.getParameter("addr3"); // 주소3(읍면동)
 
-		/* 여기서 조건과 db가 맞는지 판별 */
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String addrChk = "select * from  institution where p_instAddress3 = '" + addr3 + "'";
-		pstmt = conn.prepareStatement(addrChk);
+		String sql = "select * from institution";
+		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery();
 		
 		while (rs.next()){

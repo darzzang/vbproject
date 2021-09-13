@@ -34,3 +34,4 @@ select v_phone from data;
 show tables;
 insert into check from data where v_phone = '11111111111';
 desc vac;
+
