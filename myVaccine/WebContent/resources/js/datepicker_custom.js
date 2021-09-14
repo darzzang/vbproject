@@ -5,7 +5,7 @@ $(function() {
 	    autoclose : true,	//사용자가 날짜를 클릭하면 자동 캘린더가 닫히는 옵션
 	    calendarWeeks : false, //캘린더 옆에 몇 주차인지 보여주는 옵션 기본값 false 보여주려면 true
 	    clearBtn : false, //날짜 선택한 값 초기화 해주는 버튼 보여주는 옵션 기본값 false 보여주려면 true
-	    datesDisabled : ['2021-09-20','2021-09-21','2021-09-22'],//선택 불가능한 일 설정 하는 배열 위에 있는 format 과 형식이 같아야함.
+	    datesDisabled : ['2021-09-20','2021-09-21','2021-09-22', '2021-10-04', '2021-10-11'],//선택 불가능한 일 설정 하는 배열 위에 있는 format 과 형식이 같아야함.
 	    daysOfWeekDisabled : [0,6],	//선택 불가능한 요일 설정 0 : 일요일 ~ 6 : 토요일
 	    templates : {
 	        leftArrow: '&laquo;',
@@ -23,7 +23,7 @@ $(function() {
 	    autoclose : true,	//사용자가 날짜를 클릭하면 자동 캘린더가 닫히는 옵션
 	    calendarWeeks : false, //캘린더 옆에 몇 주차인지 보여주는 옵션 기본값 false 보여주려면 true
 	    clearBtn : false, //날짜 선택한 값 초기화 해주는 버튼 보여주는 옵션 기본값 false 보여주려면 true
-	    datesDisabled : ['2021-09-20','2021-09-21','2021-09-22'],//선택 불가능한 일 설정 하는 배열 위에 있는 format 과 형식이 같아야함.
+	    datesDisabled : ['2021-09-20','2021-09-21','2021-09-22', '2021-10-04', '2021-10-11'],//선택 불가능한 일 설정 하는 배열 위에 있는 format 과 형식이 같아야함.
 	    daysOfWeekDisabled : [0,6],	//선택 불가능한 요일 설정 0 : 일요일 ~ 6 : 토요일
 	    templates : {
 	        leftArrow: '&laquo;',

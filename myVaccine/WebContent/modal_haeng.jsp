@@ -78,23 +78,28 @@
         </div>
         
         <%
-	        PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			
-			String sql = "select * from institution";
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-			while (rs.next()){
-				String instName = rs.getString("p_instName");
-				String instAddr1 = rs.getString("p_instAddress1");	
-				String instAddr2 = rs.getString("p_instAddress2");	
-				String instAddr3 = rs.getString("p_instAddress3");
-				String instAddr4 = rs.getString("p_instAddress4");
-				String phone = rs.getString("p_instPhone");
-				String WorkHr = rs.getString("p_instWorkHour");
-			
-        	
+    	
+		String date = request.getParameter("date"); // 날짜
+		String addr1 = request.getParameter("addr1"); // 주소1(광역시도)
+		String addr2 = request.getParameter("addr2"); // 주소2(시군구)
+		String addr3 = request.getParameter("addr3"); // 주소3(읍면동)
+
+        PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String addrChk = "select * from  institution where p_instAddress3 = '" + addr3 + "'";
+		pstmt = conn.prepareStatement(addrChk);
+		rs = pstmt.executeQuery();
+		
+		while (rs.next()){
+			String instName = rs.getString("p_instName");
+			String instAddr1 = rs.getString("p_instAddress1");	
+			String instAddr2 = rs.getString("p_instAddress2");	
+			String instAddr3 = rs.getString("p_instAddress3");
+			String instAddr4 = rs.getString("p_instAddress4");
+			String phone = rs.getString("p_instPhone");
+			String WorkHr = rs.getString("p_instWorkHour");
+		
         %> 
         <div class="SearchResultArea" id="modalResult">
         	<div class="container-fluid">
@@ -129,29 +134,43 @@
         						</tbody>
         					</table>
         				</div>
+        				
+        				<!-- 시간 선택 시 텍스트 변경 이벤트 추가 -->
+        				<script type="text/javascript">
+	        				$(document).ready(function(){
+	        					/* 시간 초기값(09:00) */
+	        					document.getElementById('selectTime').innerText = document.querySelector('input[name="time"]:checked').value;	
+	        				});
+	        				
+	    					function getTime(event) {
+	    						var selectTime = event.target.value;
+								document.getElementById('selectTime').innerText = selectTime;
+								console.log(selectTime);
+	    					}
+        				</script>
+        				
         				<div class="timeSelect">
-        					<p class="timeSelectText">시간선택: 00:00</p>
+        					<p class="timeSelectText">시간선택: <span id="selectTime"></span></p>
         					<div class="timeSelectArea">
         						<form>
         							<div class="form-group">
-        								<input type="radio" name="time" value="09:00" id="time09"><label for="time09" class="btn btn-outline-default">09:00</label>	
-        								<input type="radio" name="time" value="10:00" id="time10"><label for="time10" class="btn btn-outline-default">10:00</label>	
-        								<input type="radio" name="time" value="11:00" id="time11"><label for="time11" class="btn btn-outline-default">11:00</label>	
-        								<input type="radio" name="time" value="12:00" id="time12"><label for="time12" class="btn btn-outline-default">12:00</label>
-        								<input type="radio" name="time" value="13:00" id="time13"><label for="time13" class="btn btn-outline-default">13:00</label>
-        								<input type="radio" name="time" value="14:00" id="time14"><label for="time14" class="btn btn-outline-default">14:00</label>	
-        								<input type="radio" name="time" value="15:00" id="time15"><label for="time15" class="btn btn-outline-default">15:00</label>	
-        								<input type="radio" name="time" value="16:00" id="time16"><label for="time16" class="btn btn-outline-default">16:00</label>	
-        								<input type="radio" name="time" value="17:00" id="time17"><label for="time17" class="btn btn-outline-default">17:00</label>	
-        								<input type="radio" name="time" value="18:00" id="time18"><label for="time18" class="btn btn-outline-default">18:00</label>	
+        								<input type="radio" name="time" value="09:00" id="time09" onclick='getTime(event)' checked><label for="time09" class="btn btn-outline-default">09:00</label>	
+        								<input type="radio" name="time" value="10:00" id="time10" onclick='getTime(event)'><label for="time10" class="btn btn-outline-default">10:00</label>	
+        								<input type="radio" name="time" value="11:00" id="time11" onclick='getTime(event)'><label for="time11" class="btn btn-outline-default">11:00</label>	
+        								<input type="radio" name="time" value="12:00" id="time12" onclick='getTime(event)'><label for="time12" class="btn btn-outline-default">12:00</label>
+        								<input type="radio" name="time" value="13:00" id="time13" onclick='getTime(event)'><label for="time13" class="btn btn-outline-default">13:00</label>
+        								<input type="radio" name="time" value="14:00" id="time14" onclick='getTime(event)'><label for="time14" class="btn btn-outline-default">14:00</label>	
+        								<input type="radio" name="time" value="15:00" id="time15" onclick='getTime(event)'><label for="time15" class="btn btn-outline-default">15:00</label>	
+        								<input type="radio" name="time" value="16:00" id="time16" onclick='getTime(event)'><label for="time16" class="btn btn-outline-default">16:00</label>	
+        								<input type="radio" name="time" value="17:00" id="time17" onclick='getTime(event)'><label for="time17" class="btn btn-outline-default">17:00</label>	
+        								<input type="radio" name="time" value="18:00" id="time18" onclick='getTime(event)'><label for="time18" class="btn btn-outline-default">18:00</label>	
         							</div>
         						</form>
         					</div>
         				</div>
         				<div class="vacsInStock">
-        					<p>잔여 백신 수량: 20/30</p>
+        					<p>잔여 백신 수량: <span id="stockVac"></span> &#47; <span id="totalVac"></span></p>
         				</div>
-        				
         			</div>
         		</div>
         	</div>
