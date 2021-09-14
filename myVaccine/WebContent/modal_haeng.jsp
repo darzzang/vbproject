@@ -81,12 +81,12 @@
 	        PreparedStatement pstmt = null;
 			ResultSet rs = null;
 			
-			String sql = "select * from institution";
+			String sql = "select * from instTBL";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
-				
+				// instTBL 
 				String instName = rs.getString("p_instName");
 				String instAddr1 = rs.getString("p_instAddress1");	
 				String instAddr2 = rs.getString("p_instAddress2");	
@@ -94,7 +94,11 @@
 				String instAddr4 = rs.getString("p_instAddress4");
 				String phone = rs.getString("p_instPhone");
 				String WorkHr = rs.getString("p_instWorkHour");
-			
+				String selectTime = rs.getString("vac_time"); // 접종 시간
+				String mdnTotal = rs.getString("vac_mdnTotal"); // 시간별 모더나 총량
+				String mdnUse = rs.getString("vac_mdnUse"); // 시간별 모더나 잔여량
+				String pfzrTotal = rs.getString("vac_pfzrTotal"); // 시간별 화이자 총량
+				String pfzrUse = rs.getString("vac_pfzrUse"); // 시간별 화이자 잔여량
         	
         %> 
         <div class="SearchResultArea" id="modalResult">
@@ -164,10 +168,31 @@
         						</form>
         					</div>
         				</div>
+        				<%
+        					String vacUse = "";
+        					String vacTotal = "";
+        					
+        				 	sql = "select * from vac";
+							pstmt = conn.prepareStatement(sql);
+							rs = pstmt.executeQuery();
+							
+							while (rs.next()){
+	        					String vac = rs.getString("v_vaccine");
+								if(vac.equals("Moderna")){
+									vacUse = mdnUse;
+									vacTotal = mdnTotal;
+								}
+								if(vac.equals("Pfizer")){
+									vacUse = pfzrUse;
+									vacTotal = pfzrTotal;
+								}
+						%>
         				<div class="vacsInStock">
-        					<p>잔여 백신 수량: <span id="stockVac"></span> &#47; <span id="totalVac"></span></p>
+        					<p>잔여 백신 수량: <%=vacUse%> &#47; <%=vacTotal%></p>
         				</div>
-        				
+        				<%
+							}
+        				%>
         			</div>
         		</div>
         	</div>
