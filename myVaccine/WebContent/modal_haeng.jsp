@@ -17,8 +17,16 @@
 		/* 날짜/기관 검색 시 페이지 이동 없이 modal에서 처리되는 것처럼 보이도록 만드는 코드 */
 		document.findInst.target = 'ifrm';
 	    document.findInst.action = '/processInst.jsp';
-	    document.findInst.submit();
-		
+	    
+	    var Date = findInst.date.value; // 선택 날짜
+	    var addr1 = findInst.addr1.value; // 주소1(광역시도)
+	    var addr2 = findInst.addr2.value; // 주소2(시군구)
+	    var addr3 = findInst.addr3.value; // 주소3(읍면동)
+	    
+	   	console.log(Date, addr1, addr2, addr3); // 확인용 console.log
+	   	
+	   	document.findInst.submit();
+	    
 		if ($('#modalResult').css('display') == 'none') {
 			$('#modalResult').slideDown();
 		} else {
@@ -74,14 +82,19 @@
         		<!-- page 이동 없이 submit을 하기 위해 필요 -->
         		<iframe name='ifrm' style="display:none"></iframe>
         	</div>
-        </div>
-        
+        </div>   
 		<%@ include file="dbconn.jsp" %>
         <%
+
+			String date = request.getParameter("date"); // 날짜
+			String addr1 = request.getParameter("addr1"); // 주소1(광역시도)
+			String addr2 = request.getParameter("addr2"); // 주소2(시군구)
+			String addr3 = request.getParameter("addr3"); // 주소3(읍면동)
+		        
 	        PreparedStatement pstmt = null;
 			ResultSet rs = null;
 			
-			String sql = "select * from instTBL";
+			String sql = "select * from instTBL where p_instAddress3 = '" + addr3 + "'";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
@@ -168,31 +181,10 @@
         						</form>
         					</div>
         				</div>
-        				<%
-        					String vacUse = "";
-        					String vacTotal = "";
-        					
-        				 	sql = "select * from vac";
-							pstmt = conn.prepareStatement(sql);
-							rs = pstmt.executeQuery();
-							
-							while (rs.next()){
-	        					String vac = rs.getString("v_vaccine");
-								if(vac.equals("Moderna")){
-									vacUse = mdnUse;
-									vacTotal = mdnTotal;
-								}
-								if(vac.equals("Pfizer")){
-									vacUse = pfzrUse;
-									vacTotal = pfzrTotal;
-								}
-						%>
+        				
         				<div class="vacsInStock">
-        					<p>잔여 백신 수량: <%=vacUse%> &#47; <%=vacTotal%></p>
+        					<p>잔여 백신 수량: &#47; </p>
         				</div>
-        				<%
-							}
-        				%>
         			</div>
         		</div>
         	</div>
