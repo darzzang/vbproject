@@ -14,11 +14,12 @@
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String addrChk = "select * from  institution where p_instAddress3 = '" + addr3 + "'";
+		String addrChk = "select * from  instTBL where p_instAddress1 = '" + addr1 + "' and p_instAddress2 ='" + addr2 + "' and p_instAddress3 = '"+ addr3 + "'";
 		pstmt = conn.prepareStatement(addrChk);
 		rs = pstmt.executeQuery();
+	
 		
-		while (rs.next()){
+		while(rs.next()){ 
 			String instName = rs.getString("p_instName");
 			String instAddr1 = rs.getString("p_instAddress1");	
 			String instAddr2 = rs.getString("p_instAddress2");	
@@ -32,5 +33,5 @@
     	if(pstmt != null) pstmt.close();
     	if(conn != null) conn.close();
 		
-		response.sendRedirect("modal_haeng.jsp");
+		response.sendRedirect("booking.jsp#bookingModal");
 	%>
