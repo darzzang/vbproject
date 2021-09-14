@@ -9,7 +9,8 @@
 		String user = "root";
 		String password = "1234";
 		
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		// Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'.
 		conn = DriverManager.getConnection(url, user, password);
 	}catch(SQLException ex){
 		out.println("데이터베이스 연결이 실패했습니다.<br>");
