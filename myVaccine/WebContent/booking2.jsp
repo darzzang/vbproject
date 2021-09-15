@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="dbconn.jsp" %>
 <%
 	request.setCharacterEncoding("utf-8");
 %>
@@ -102,38 +103,86 @@
 						
 						<div class="SearchResultArea">
 				        	<div class="row">
-				        		<p>검색 결과 총 2개</p>
+				        		<!-- 리스트 카운트 -->
+				        		<%
+								 	PreparedStatement pstmt = null;
+		        					ResultSet rs = null;
+		        					int cnt = 0;
+		        							
+			        				String sql = "select count(*) from institution";
+			        				pstmt = conn.prepareStatement(sql);
+			        				rs = pstmt.executeQuery();
+			        				
+			        				while(rs.next()){
+			        					cnt = rs.getInt(1);
+								%>
+				        		<p>검색 결과 총 <%=cnt%>개</p>
+				        		<%
+			        				}
+				        		%>
 				        		<div class="col-sm-4 instArea">
 				        			<ul>
-				        				<li class="active">
-				        					<button>
-				        						<span class="lilText">대구광역시 &gt; 동구</span>
-				        						<span>동구보건소</span>
-				        					</button>
-				        				</li>
+				        				<%
+					        		        pstmt = null;
+					        				rs = null;
+					        				
+					        				sql = "select * from institution";
+					        				pstmt = conn.prepareStatement(sql);
+					        				rs = pstmt.executeQuery();
+					        				
+					        				while(rs.next()){
+					        					String instName = rs.getString("p_instName");
+					        					String instAddr1 = rs.getString("p_instAddress1");	
+					        					String instAddr2 = rs.getString("p_instAddress2");
+				        				%>
 				        				<li>
 				        					<button>
-				        						<span class="lilText">대구광역시 &gt; 동구</span>
-				        						<span>동구 예방접종센터</span>
-				        				</button>
+				        						<span class="lilText"><%=instAddr1 %> &gt; <%=instAddr2 %></span>
+				        						<span id="instNameText" class="instNameText"><%=instName %></span>
+				        					</button>
 				        				</li>
+				        				<%
+					        				}
+				        				%>
 				        			</ul>
 				        		</div>
+				        		<%
+					        		pstmt = null;
+			        				rs = null;
+			        				
+			        				sql = "select * from instTBL";
+			        				pstmt = conn.prepareStatement(sql);
+			        				rs = pstmt.executeQuery();
+			        				
+			        				if(rs.next()){
+			        					String inst = rs.getString("p_instName");
+			        					String instAddr1 = rs.getString("p_instAddress1");	
+			        					String instAddr2 = rs.getString("p_instAddress2");	
+			        					String instAddr3 = rs.getString("p_instAddress3");
+			        					String instAddr4 = rs.getString("p_instAddress4");
+			        					String phone = rs.getString("p_instPhone");
+			        					String WorkHr = rs.getString("p_instWorkHour");
+			        					String selectTime = rs.getString("vac_time"); // 접종 시간
+			        					String mdnTotal = rs.getString("vac_mdnTotal"); // 시간별 모더나 총량
+			        					String mdnUse = rs.getString("vac_mdnUse"); // 시간별 모더나 잔여량
+			        					String pfzrTotal = rs.getString("vac_pfzrTotal"); // 시간별 화이자 총량
+			        					String pfzrUse = rs.getString("vac_pfzrUse"); // 시간별 화이자 잔여량
+				        		%>
 				        		<div class="col-sm-8 infoArea">
 				        			<div class="titleArea">
-				        				<p class="title">의료기관명</p>
-				        				<p class="addressText">의료기관 주소</p>
+				        				<p class="title"><%=inst %></p>
+				        				<p class="addressText"><%=instAddr1 %> <%=instAddr2 %> <%=instAddr3 %> <%=instAddr4 %></p>
 				        			</div>
 				        			<div class="instInfo">
 				        				<table>
 				        					<tbody>
 				        						<tr>
 				        							<th>전화번호</th>
-				        							<td>053-000-0000</td>
+				        							<td><%=phone %></td>
 				        						</tr>
 				        						<tr>
 				        							<th>진료시간</th>
-				        							<td>dddd</td>
+				        							<td><%=WorkHr %></td>
 				        					</tr>
 				        					</tbody>
 				        				</table>
@@ -142,7 +191,7 @@
 				        			<script type="text/javascript">
 					        			$(document).ready(function(){
 					        				/* 시간 초기값(09:00) */
-					        				/* document.getElementById('selectTime').innerText = document.querySelector('input[name="time"]:checked').value(); */	
+					        				document.getElementById('selectTime').innerText = $('input[name=time]:checked').val(); 	
 					        			});
 					        			
 					    				function getTime(event) {
@@ -153,28 +202,31 @@
 				        			</script>	
 				        			
 				        			<div class="timeSelect">
-				        				<p class="timeSelectText">시간선택: 00:00</p>
+				        				<p class="timeSelectText">시간선택: <span id="selectTime"></span></p>
 				        				<div class="timeSelectArea">
 				        					<form>
 				        						<div class="form-group">
-				        							<input type="radio" name="time" value="09:00" id="time09"><label for="time09" class="btn btn-outline-default">09:00</label>	
-				        							<input type="radio" name="time" value="10:00" id="time10"><label for="time10" class="btn btn-outline-default">10:00</label>	
-				        							<input type="radio" name="time" value="11:00" id="time11"><label for="time11" class="btn btn-outline-default">11:00</label>	
-				        							<input type="radio" name="time" value="12:00" id="time12"><label for="time12" class="btn btn-outline-default">12:00</label>
-				        							<input type="radio" name="time" value="13:00" id="time13"><label for="time13" class="btn btn-outline-default">13:00</label>
-				        							<input type="radio" name="time" value="14:00" id="time14"><label for="time14" class="btn btn-outline-default">14:00</label>	
-				        							<input type="radio" name="time" value="15:00" id="time15"><label for="time15" class="btn btn-outline-default">15:00</label>	
-				        							<input type="radio" name="time" value="16:00" id="time16"><label for="time16" class="btn btn-outline-default">16:00</label>	
-				        							<input type="radio" name="time" value="17:00" id="time17"><label for="time17" class="btn btn-outline-default">17:00</label>	
-				        							<input type="radio" name="time" value="18:00" id="time18"><label for="time18" class="btn btn-outline-default">18:00</label>	
+				        							<input type="radio" name="time" value="09:00" id="time09" checked onclick="getTime(event)"><label for="time09" class="btn btn-outline-default">09:00</label>	
+				        							<input type="radio" name="time" value="10:00" id="time10" onclick="getTime(event)"><label for="time10" class="btn btn-outline-default">10:00</label>	
+				        							<input type="radio" name="time" value="11:00" id="time11" onclick="getTime(event)"><label for="time11" class="btn btn-outline-default">11:00</label>	
+				        							<input type="radio" name="time" value="12:00" id="time12" onclick="getTime(event)"><label for="time12" class="btn btn-outline-default">12:00</label>
+				        							<input type="radio" name="time" value="13:00" id="time13" onclick="getTime(event)"><label for="time13" class="btn btn-outline-default">13:00</label>
+				        							<input type="radio" name="time" value="14:00" id="time14" onclick="getTime(event)"><label for="time14" class="btn btn-outline-default">14:00</label>	
+				        							<input type="radio" name="time" value="15:00" id="time15" onclick="getTime(event)"><label for="time15" class="btn btn-outline-default">15:00</label>	
+				        							<input type="radio" name="time" value="16:00" id="time16" onclick="getTime(event)"><label for="time16" class="btn btn-outline-default">16:00</label>	
+				        							<input type="radio" name="time" value="17:00" id="time17" onclick="getTime(event)"><label for="time17" class="btn btn-outline-default">17:00</label>	
+				        							<input type="radio" name="time" value="18:00" id="time18" onclick="getTime(event)"><label for="time18" class="btn btn-outline-default">18:00</label>	
 				        						</div>
 				        					</form>
 				        				</div>
 				        			</div>
 				        			<div class="vacsInStock">
-				        				<p>잔여 백신 수량: 20/30</p>
+				        				<p>잔여 백신 수량: (모더나)<%=mdnUse %>/<%=mdnTotal %> | (화이자)<%=pfzrUse %>/<%=pfzrTotal %></p>
 				        			</div>
 				        		</div>
+				        		<%
+			        				}
+				        		%>
 				        	</div>
 				        </div>
 				        
