@@ -9,8 +9,18 @@
 		String addr1 = request.getParameter("addr1"); // 주소1(광역시도)
 		String addr2 = request.getParameter("addr2"); // 주소2(시군구)
 		String addr3 = request.getParameter("addr3"); // 주소3(읍면동)
+
 		
 		// instTBL의 임시저장 테이블(tmpinstTBL)을 만들어서 addr3의 조건이 맞으면 데이터 저장 후 모달창에 출력
+
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from institution";
+		pstmt = conn.prepareStatement(sql);
+		rs = pstmt.executeQuery();
+
 		
 			String instName = rs.getString("p_instName");
 			String instAddr1 = rs.getString("p_instAddress1");	

@@ -32,3 +32,4 @@ select * from  institution where p_instAddress3 = '검사동';
 /* 임시 저장 테이블(구조 복사) */
 create table if not exists tmpInstTBL like instTBL;
 select * from tmpInstTBL;
+
