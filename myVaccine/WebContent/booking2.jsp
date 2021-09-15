@@ -63,7 +63,7 @@
 					<div class="col-sm-8 offset-sm-2 findInstitution">
 						<div class="searchArea">
 				        	<div class="container-fluid">
-				        		<form name="findInst" method="post">
+				        		<form name="findInst" action="processInst.jsp" method="post">
 					        		<div class="form-group row datePicker">
 					        			<div class="col-sm-2 labelArea">
 											<label>날짜 선택<span class="require-mark">*</span></label>
