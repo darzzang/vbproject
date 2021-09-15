@@ -34,6 +34,25 @@
 					</div>
 				</div>
 				
+				<div class="row">
+					<div class="col-sm-8 offset-sm-2 progressBar">
+						<ul>
+							<li class="active">
+								<span class="smText">STEP 01.</span>
+								<span class="lgText">예약자 정보 입력</span>
+							</li>
+							<li class="">
+								<span class="smText">STEP 02.</span>
+								<span class="lgText">의료기관 찾기</span>
+							</li>
+							<li class="">
+								<span class="smText">STEP 03.</span>
+								<span class="lgText">예약 결과 확인</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				
 				<!-- 입력값을 데이터베이스에 저장하고 결과창에 출력하는 프로세스 -->
 				<form name="newBooking" action="processBooking.jsp" method="post">
 					<div class="row">
@@ -98,23 +117,23 @@
 									<p class="alertText" id="phnError">* 휴대폰 번호를 정확하게 입력하세요</p>
 								</div>
 							</div>
-							<div class="form-group row">
+							<!-- <div class="form-group row">
 								<div class="col-sm-4 labelArea">
 									<label>의료기관 및 예약일시 선택<span class="require-mark">*</span></label>
 								</div>
 								<div class="col-sm-8 inputArea">
 									<input type="button" data-bs-toggle="modal" data-bs-target="#bookingModal" class="btn btn-outline-default" value="의료기관 찾기">
-									<!-- 선택 후 출력될 텍스트 -->
-									<!-- <ul class="resultText">
+									선택 후 출력될 텍스트
+									<ul class="resultText">
 										<li>예약일시: 2021.08.30</li>
 										<li>선택된 의료기관: 영진보건소</li>
-									</ul> -->
+									</ul>
 								</div>
-							</div>
+							</div> -->
 							
 							<div class="btnArea">
 								<ul class="row justify-content-center">
-									<li class="col-3"><input type="button" class="btn bookingBtn" value="예약" onclick="checkBooking()"></li>
+									<li class="col-3"><input type="button" class="btn bookingBtn" value="다음" onclick="checkBooking()"></li>
 									<li class="col-3"><a href="#" class="btn btn-outline-secondary">취소</a></li>
 								</ul>
 							</div>
@@ -123,9 +142,6 @@
 				</form>
 			</div>
 		</div>
-		
-		<!-- 의료기관 찾기 창(modal)/DB 연결 작업을 위한 경로 변경 -->
-		<%@ include file="modal_haeng.jsp" %>
 		
 		<!-- footer 영역(include 디렉티브 태그 이용) -->
 		<%@ include file="include/footer.jsp" %>
