@@ -25,10 +25,11 @@
 			</div>
 		</div>
 		
+		
+		
 		<!-- 예약 완료(result area) -->
 		<div class="pd resultArea">
 			<div class="container">
-			
 				<!-- 예약조회/수정페이지로 출력될 때에는 해당영역에 style="display:none"을 넣어주시기 바랍니다 -->
 				<div class="row">
 					<div class="col-sm-8 offset-sm-2 progressBar">
@@ -48,8 +49,9 @@
 						</ul>
 					</div>
 				</div>
+
+				<!-- 예약자 정보 영역(userArea) -->
 				<div class="row">
-					<!-- 예약자 정보 영역(userArea) -->
 					<div class="col-sm-8 offset-sm-2 infoArea userArea">
 						<h2>예약자 정보</h2>
 						<table class="table align-middle">
@@ -83,12 +85,11 @@
 								<tr>
 									<th>휴대폰 번호</th>
 									<td><%=phone1 %> - <%=phone2 %> - <%=phone3 %></td>
-								</tr>
-								
+                </tr>
 							</tbody>
 						</table>
 					</div>
-				
+						
 					<!-- 예약 정보 영역 -->
 					<div class="col-sm-8 offset-sm-2 infoArea vacArea">
 						<h2>예약 정보</h2>
@@ -131,8 +132,7 @@
 				</div>
 			</div>
 		</div>
-		
-		
+
 		<!-- footer 영역(include 디렉티브 태그 이용) -->
 		<%@ include file="include/footer.jsp" %>
 	</div>
