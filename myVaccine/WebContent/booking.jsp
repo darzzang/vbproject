@@ -33,7 +33,6 @@
 						<p>&ulcorner;감염병의 예방 및 관리에 관한 법률&lrcorner; 제33조의 4 및 같은 법 시행령 제32조의 3에 따라<br>코로나19 예방접종 예약신청을 위하여 다음의 개인정보를 수집합니다.</p>
 					</div>
 				</div>
-				
 				<div class="row">
 					<div class="col-sm-8 offset-sm-2 progressBar">
 						<ul>
@@ -52,7 +51,6 @@
 						</ul>
 					</div>
 				</div>
-				
 				<!-- 입력값을 데이터베이스에 저장하고 결과창에 출력하는 프로세스 -->
 				<form name="newBooking" action="processBooking.jsp" method="post">
 					<div class="row">

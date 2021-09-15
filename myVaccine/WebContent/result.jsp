@@ -49,6 +49,7 @@
 						</ul>
 					</div>
 				</div>
+
 				<!-- 예약자 정보 영역(userArea) -->
 				<div class="row">
 					<div class="col-sm-8 offset-sm-2 infoArea userArea">
@@ -84,8 +85,7 @@
 								<tr>
 									<th>휴대폰 번호</th>
 									<td><%=phone1 %> - <%=phone2 %> - <%=phone3 %></td>
-								</tr>
-									
+                </tr>
 							</tbody>
 						</table>
 					</div>
