@@ -33,7 +33,24 @@
 						<p>&ulcorner;감염병의 예방 및 관리에 관한 법률&lrcorner; 제33조의 4 및 같은 법 시행령 제32조의 3에 따라<br>코로나19 예방접종 예약신청을 위하여 다음의 개인정보를 수집합니다.</p>
 					</div>
 				</div>
-				
+				<div class="row">
+					<div class="col-sm-8 offset-sm-2 progressBar">
+						<ul>
+							<li class="active">
+								<span class="smText">STEP 01.</span>
+								<span class="lgText">예약자 정보 입력</span>
+							</li>
+							<li class="">
+								<span class="smText">STEP 02.</span>
+								<span class="lgText">의료기관 찾기</span>
+							</li>
+							<li class="">
+								<span class="smText">STEP 03.</span>
+								<span class="lgText">예약 결과 확인</span>
+							</li>
+						</ul>
+					</div>
+				</div>
 				<!-- 입력값을 데이터베이스에 저장하고 결과창에 출력하는 프로세스 -->
 				<form name="newBooking" action="processBooking.jsp" method="post">
 					<div class="row">
@@ -114,7 +131,7 @@
 							
 							<div class="btnArea">
 								<ul class="row justify-content-center">
-									<li class="col-3"><input type="button" class="btn bookingBtn" value="예약" onclick="checkBooking()"></li>
+									<li class="col-3"><input type="button" class="btn bookingBtn" value="다음" onclick="checkBooking()"></li>
 									<li class="col-3"><a href="#" class="btn btn-outline-secondary">취소</a></li>
 								</ul>
 							</div>
@@ -123,9 +140,6 @@
 				</form>
 			</div>
 		</div>
-		
-		<!-- 의료기관 찾기 창(modal)/DB 연결 작업을 위한 경로 변경 -->
-		<%@ include file="modal_haeng.jsp" %>
 		
 		<!-- footer 영역(include 디렉티브 태그 이용) -->
 		<%@ include file="include/footer.jsp" %>
