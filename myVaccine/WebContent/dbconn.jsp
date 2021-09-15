@@ -9,6 +9,7 @@
 		String user = "root";
 		String password = "1234";
 		
+
 		/* 
 			[오류 로그] 
 			Loading class `com.mysql.jdbc.Driver'. This is deprecated. 
