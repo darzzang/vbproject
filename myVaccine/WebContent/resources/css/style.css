@@ -208,7 +208,7 @@ footer p{margin-bottom:0;}
 .findInstitution .placePicker select{display:inline-block; width:32%;}
 .findInstitution .searchArea .btnArea{margin-top:0;}
 .findInstitution .btnArea input{width:100%;}
-.findInstitution .SearchResultArea{margin-top:2.5em;/*  display:none; */}
+.findInstitution .SearchResultArea{margin-top:2.5em; display:none;}
 .findInstitution .instArea ul{padding:0;}
 .findInstitution .instArea ul li{list-style:none; border:1px solid #dee2e6; border-radius:10px; margin-bottom:0.25em;}
 .findInstitution .instArea ul li button{display:block; padding:1em; color:#000; text-decoration:none; transition: 0.3s; background:none; border:none; width:100%; text-align:left;}

@@ -16,6 +16,21 @@
 <script src="resources/js/bootstrap-datepicker.ko.min.js"></script>
 <script src="resources/js/datepicker_custom.js"></script>
 
+<!-- (참고용) 검색 버튼 클릭 시 검색 결과 영역 출력 -->
+<script type="text/javascript">
+	
+	/* '검색' 버튼에 onclick으로 이벤트 설정 */
+	function showRes() {
+		
+		document.findInst.target = 'ifrm';
+	    document.findInst.action = '/processInst.jsp';
+	    document.findInst.submit();
+	    
+		if ($('.SearchResultArea').css('display') == 'none') {
+			$('.SearchResultArea').slideDown();
+		}
+	}
+</script>
 
 <body>
 	<div class="wrapper">
@@ -63,7 +78,7 @@
 					<div class="col-sm-8 offset-sm-2 findInstitution">
 						<div class="searchArea">
 				        	<div class="container-fluid">
-				        		<form name="findInst" action="processInst.jsp" method="post">
+				        		<form name="findInst" method="post">
 					        		<div class="form-group row datePicker">
 					        			<div class="col-sm-2 labelArea">
 											<label>날짜 선택<span class="require-mark">*</span></label>
@@ -85,19 +100,19 @@
 						        				<option selected>시군구</option>
 						        				<option value="동구">동구</option>
 						        			</select>
-						        			<!-- <select class="form-select" name="addr3" required>
+						        			<select class="form-select" name="addr3" required>
 						        				<option selected>읍면동</option>
 						        				<option value="검사동">검사동</option>
 						        				<option value="효목동">효목동</option>
-						        			</select> -->
+						        			</select>
 					        			</div>
 					        			<div class="col-sm-3 btnArea">
-						        			<input type="submit" value="검색" class="btn btn-outline-default" onclick="showRes()">
+						        			<input type="button" value="검색" class="btn btn-outline-default" onclick="showRes()">
 						        		</div>
 					        		</div>
 				        		</form>
 				        		<!-- page 이동 없이 submit을 하기 위해 필요 -->
-				        		<!-- <iframe name='ifrm' style="display:none"></iframe> -->
+				        		<iframe name='ifrm' style="display:none"></iframe>
 				        	</div>
 				        </div>  
 						
@@ -109,7 +124,7 @@
 		        					ResultSet rs = null;
 		        					int cnt = 0;
 		        							
-			        				String sql = "select count(*) from institution";
+			        				String sql = "select count(distinct p_instName) from tmpInstTBL";
 			        				pstmt = conn.prepareStatement(sql);
 			        				rs = pstmt.executeQuery();
 			        				
@@ -140,7 +155,11 @@
 				</div>
 			</div>
 		</div>
-		
+		<%
+	       	if(rs != null) rs.close();
+	   		if(pstmt != null) pstmt.close();
+	   		if(conn != null) conn.close();
+		%>
 		<!-- footer 영역(include 디렉티브 태그 이용) -->
 		<%@ include file="include/footer.jsp" %>
 	</div>

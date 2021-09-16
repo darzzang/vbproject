@@ -3,8 +3,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- jQuery -->
+<link href="/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<!-- google fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-	body{margin:0;}
+	html, body {margin: 0; padding: 0;}
+	html {position: relative;}
+	body{position:relative; z-index:1; font-family: 'Noto Sans KR', sans-serif;}
 	.form-group .labelArea{height:auto; padding-top:0.75em; padding-bottom:0.75em; background:none;}
 	.infoArea table th{background:#f8f9fa; padding-top:1.25em; padding-bottom:1.25em; width:20%;}
 	.infoArea .titleArea{margin-bottom:1em; border-bottom:1px solid #dee2e6;}
@@ -25,6 +33,10 @@
 	.vacsInStock ul{padding:0;}
 	.vacsInStock ul li{list-style:none; display:inline-block; margin-right:1.5em;}
 	.infoArea{margin-bottom:0;}
+	.btn-outline-default{border:1px solid #26437e; color:#26437e; transition:0.3s;}
+	.btn-outline-default:hover{background: #26437e; color: #fff; opacity: 0.9;}
+	.btn-default{background: #26437e; color: #fff; opacity: 0.9; transition:0.3s;}
+	.btn-default:hover{opacity:1; color:#fff;}
 </style>
 <meta charset="UTF-8">
 <title></title>
@@ -110,6 +122,11 @@
 		</div>
 	<%
 		}
+	%>
+	<%
+       	if(rs != null) rs.close();
+   		if(pstmt != null) pstmt.close();
+   		if(conn != null) conn.close();
 	%>
 </body>
 </html>
