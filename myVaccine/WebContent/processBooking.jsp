@@ -44,8 +44,14 @@
 			if(pstmt != null) pstmt.close();
 			if(rs != null) rs.close();
 			if(conn != null) conn.close();
-			//예약 오류 페이지 errorBooking.jsp 페이지로 보내기
-			response.sendRedirect("errorBooking.jsp");
+			
+			%>
+				<script>
+					/* 안내문구 출력 후 booking.jsp로 이동 */
+					alert("이미 예약된 번호입니다.");	
+					location.href="booking.jsp"
+				</script>
+			<%
 		}else{//입력받은 phone번호가 등록되어 있지 않은 번호라면
 			//입력받은 값을 결과창에 출력하기 위해 임시로 저장하는 table vac
 			String vac_insert = "insert into vac values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
