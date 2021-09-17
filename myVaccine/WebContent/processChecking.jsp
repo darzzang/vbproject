@@ -11,7 +11,8 @@
 	<%@ include file="dbconn.jsp" %>
 	<%
 		request.setCharacterEncoding("UTF-8");
-	
+		
+		//조회창에서 휴대폰 번호만 받는다
 		String phone1 = request.getParameter("phone1");		//폰 앞자리
 		String phone2 = request.getParameter("phone2");		//폰 중간
 		String phone3 = request.getParameter("phone3");		//폰 뒷자리
@@ -20,14 +21,17 @@
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
+		//vac 테이블을 사용하기 위해 일단 초기화
 		String delete = "delete from vac";
 		pstmt = conn.prepareStatement(delete);
 		pstmt.executeUpdate();
 		
+		//입력받은 번호로 data 테이블 검색
 		String select = "select * from data where v_phone = '" + phone + "'";
 		pstmt = conn.prepareStatement(select);
 		rs = pstmt.executeQuery();
-		while (rs.next()){
+		if(rs.next()){//입력받은 번호가 data에 있으면
+			//v_phone = phone인 데이터들을 불러들인다
 			String cvac = rs.getString("v_vaccine");	
 			String cname = rs.getString("v_name");
 			String cidNum1 = rs.getString("v_idNum1");
@@ -37,7 +41,8 @@
 			String cphone3 = rs.getString("v_phone3");
 			String cidNum = rs.getString("v_idNum");
 				
-			String check = "insert into vac values(?, ?, ?, ?, ?, ?, ?)";
+			//data에서 불러온 데이터를 vac에 저장한다
+			String check = "insert into vac values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(check);
 			pstmt.setString(1, cvac);
 			pstmt.setString(2, cname);
@@ -46,13 +51,22 @@
 			pstmt.setString(5, cphone1);
 			pstmt.setString(6, cphone2);
 			pstmt.setString(7, cphone3);
+			pstmt.setString(8, cidNum);
+			pstmt.setString(9, phone);
 			pstmt.executeUpdate();		
+			
+			if(pstmt != null) pstmt.close();
+			if(rs != null) rs.close();
+			if(conn != null) conn.close();
+			
+			response.sendRedirect("result.jsp");
+		}else{//입력받은 번호가 data에 없으면(즉 예약된 번호가 아니라면)
+			if(pstmt != null) pstmt.close();
+			if(rs != null) rs.close();
+			if(conn != null) conn.close();
+			//예약조회 오류페이지 errorChecking.jsp 페이지로 보내기
+			response.sendRedirect("errorChecking.jsp");
 		}
-		if(pstmt != null) pstmt.close();
-		if(rs != null) rs.close();
-		if(conn != null) conn.close();
-		
-		response.sendRedirect("result.jsp");
 	%>
 	
 </body>
