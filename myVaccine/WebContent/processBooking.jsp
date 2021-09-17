@@ -78,7 +78,7 @@
 			if(pstmt != null) pstmt.close();
 			if(rs != null) rs.close();
 			if(conn != null) conn.close();
-			response.sendRedirect("result.jsp");		
+			response.sendRedirect("booking2.jsp");		
 		}
 	%>
 	
