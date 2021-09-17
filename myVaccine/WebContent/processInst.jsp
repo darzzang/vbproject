@@ -55,6 +55,10 @@
 			pstmt.executeUpdate();	
 		}
 		
+		/* addr1=null;
+		addr2=null;
+		addr3=null; */
+		
 		if(pstmt != null) pstmt.close();
 		if(rs != null) rs.close();
 		if(conn != null) conn.close();

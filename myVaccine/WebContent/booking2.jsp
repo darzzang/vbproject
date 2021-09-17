@@ -29,6 +29,10 @@
 		if ($('.SearchResultArea').css('display') == 'none') {
 			$('.SearchResultArea').slideDown();
 		}
+		
+		// reset 실패
+		// 참고해볼것:http://112.171.126.71/boards/5/topics/25
+		
 	}
 </script>
 
@@ -78,7 +82,7 @@
 					<div class="col-sm-8 offset-sm-2 findInstitution">
 						<div class="searchArea">
 				        	<div class="container-fluid">
-				        		<form name="findInst" method="post">
+				        		<form name="findInst" id="findInst" method="post">
 					        		<div class="form-group row datePicker">
 					        			<div class="col-sm-2 labelArea">
 											<label>날짜 선택<span class="require-mark">*</span></label>
@@ -107,7 +111,7 @@
 						        			</select>
 					        			</div>
 					        			<div class="col-sm-3 btnArea">
-						        			<input type="button" value="검색" class="btn btn-outline-default" onclick="showRes()">
+						        			<button type="button" class="btn btn-outline-default" onclick="showRes()">검색</button>
 						        		</div>
 					        		</div>
 				        		</form>

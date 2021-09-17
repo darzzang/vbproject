@@ -16,7 +16,7 @@
 		ul{padding:0; margin:0;}
 		ul li{list-style:none; border:1px solid #dee2e6; border-radius:10px; margin-bottom:0.25em;}
 		ul li a{display:block; padding:1em; color:#000; text-decoration:none; transition: 0.3s; background:none; border:none; width:100%; text-align:left;}
-		ul li a:hover, ul li.active a{background:#dee2e6; color:#fff;}
+		ul li a:hover, ul li.active a{background:#dee2e6; color:#000;}
 		ul li a span{display:block; font-weight:700; font-family: 'Noto Sans KR', sans-serif;}
 		ul li a span.lilText{font-size:0.75em; color:#333; font-weight:400;}
 		ul li button{display:block; padding:1em; color:#000; text-decoration:none; transition: 0.3s; background:none; border:none; width:100%; text-align:left;}
