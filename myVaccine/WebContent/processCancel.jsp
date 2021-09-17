@@ -15,15 +15,15 @@
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		//vac 가져오기 - data 테이블에 입력받은 값은 입력받은 값으로 update, 그렇지 않은 부분은 기존 vac 테이블의 값으로 update
+		//vac 가져오기 
 		String select = "select * from vac";
 		pstmt = conn.prepareStatement(select);
 		rs = pstmt.executeQuery();
-		while(rs.next()){//booking, checking과는 달리 primary key가 겹치거나 null이 될 일이 없다.
-			//vac 테이블의 값
+		while(rs.next()){
+			//vac 테이블에서 v_phone값
 			String cphone = rs.getString("v_phone");
 			
-			//입력받은 값들을 data 테이블에  update
+			//vac의 v_phone과 data의 v_phone이 같은 경우의 값을 지움
 			String delete = "delete from data where v_phone = '"+cphone+"'";
 			pstmt = conn.prepareStatement(delete);
 			pstmt.executeUpdate();	

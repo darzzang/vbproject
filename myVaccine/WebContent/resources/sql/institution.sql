@@ -1,5 +1,4 @@
 drop table institution;
-drop table instTBL;
 
 create table if not exists institution(
 	p_appDate DATE, 
@@ -25,11 +24,12 @@ insert into institution values('2021-01-01', '대구광역시', '동구', '효�
 /* instTBL = institution table + vaccine table */
 CREATE TABLE instTBL SELECT * FROM institution JOIN vaccine ON institution.p_instName=vaccine.vac_inst;
 select * from instTBL;
-
+drop table instTBL;
 select * from  institution where p_instAddress3 = '검사동';
 
 
 /* 임시 저장 테이블(구조 복사) */
+drop table instTBL;
 create table if not exists tmpInstTBL like instTBL;
 select * from tmpInstTBL;
 
