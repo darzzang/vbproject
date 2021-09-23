@@ -22,7 +22,12 @@ insert into institution values('2021-01-01', '대구광역시', '동구', '효�
 
 
 /* instTBL = institution table + vaccine table */
-CREATE TABLE instTBL SELECT * FROM institution JOIN vaccine ON institution.p_instName=vaccine.vac_inst;
+CREATE TABLE instTBL 
+	SELECT I.p_instAddress1, I.p_instAddress2, I.p_instAddress3, I.p_instAddress4, I.p_instName, I.p_instPhone, I.p_instWorkHour, V.vac_time, V.vac_mdnTotal, V.vac_mdnUse, V.vac_pfzrTotal, V.vac_pfzrUse
+		FROM institution I 
+			JOIN vaccine V 
+				ON I.p_instName=V.vac_inst;
+			
 select * from instTBL;
 drop table instTBL;
 select * from  institution where p_instAddress3 = '검사동';
@@ -30,6 +35,8 @@ select * from  institution where p_instAddress3 = '검사동';
 
 /* 임시 저장 테이블(구조 복사) */
 drop table instTBL;
+drop table tmpInstTBL;
 create table if not exists tmpInstTBL like instTBL;
 select * from tmpInstTBL;
+
 
