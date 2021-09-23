@@ -44,10 +44,12 @@
 <body class="infoArea">
 	<%@ include file="dbconn.jsp" %>
 	<%
+		String id = request.getParameter("id");
+		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select * from instTBL";
+		String sql = "select * from tmpInstTBL";
 		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery();
 		
@@ -84,6 +86,10 @@
 				</tbody>
 			</table>
 		</div>
+		<%
+			}
+		%>
+		
 		<!-- 시간 선택 시 텍스트 변경 이벤트 추가 -->
 		<script type="text/javascript">
 	  		$(document).ready(function(){
@@ -117,12 +123,18 @@
 				</form>
 			</div>
 		</div>
+		<%
+			String vaccineQuery = "select * from tmpInstTBL";
+			pstmt = conn.prepareStatement(vaccineQuery);
+			rs = pstmt.executeQuery();
+		%>
 		<div class="vacsInStock">
 			<p>잔여 백신 수량: (모더나)<%=mdnUse %>/<%=mdnTotal %> | (화이자)<%=pfzrUse %>/<%=pfzrTotal %></p>
 		</div>
-	<%
-		}
-	%>
+		<%
+			}
+		%>
+	
 	<%
        	if(rs != null) rs.close();
    		if(pstmt != null) pstmt.close();

@@ -59,5 +59,5 @@
 		if(rs != null) rs.close();
 		if(conn != null) conn.close();
 		
-		response.sendRedirect("searchList.jsp");
+		response.sendRedirect("searchResult.jsp");
 	%>
