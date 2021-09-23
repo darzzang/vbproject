@@ -64,8 +64,14 @@
 			if(pstmt != null) pstmt.close();
 			if(rs != null) rs.close();
 			if(conn != null) conn.close();
-			//예약조회 오류페이지 errorChecking.jsp 페이지로 보내기
-			response.sendRedirect("errorChecking.jsp");
+			//예약조회 오류메시지 띄우고 다시 예약조회 페이지로
+			%>
+			<script>
+					/* 안내문구 출력 후 bookingCheck.jsp로 이동 */
+					alert("예약되지 않은 번호입니다.");	
+					location.href="bookingCheck.jsp"
+			</script>
+			<%
 		}
 	%>
 	
