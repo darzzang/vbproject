@@ -2,16 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ include file="dbconn.jsp" %>
+	
+
 	<%
 		request.setCharacterEncoding("UTF-8");
-	
+		
 		String date = request.getParameter("date"); // 날짜
 		String addr1 = request.getParameter("addr1"); // 주소1(광역시도)
 		String addr2 = request.getParameter("addr2"); // 주소2(시군구)
 		String addr3 = request.getParameter("addr3"); // 주소3(읍면동)
-		String addr = addr1+addr2;
 		
-		// instTBL의 임시저장 테이블(tmpinstTBL)을 만들어서 addr3의 조건이 맞으면 데이터 저장 후 모달창에 출력
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
@@ -37,7 +37,7 @@
 			String pfzrTotal = rs.getString("vac_pfzrTotal"); // 시간별 화이자 총량
 			String pfzrUse = rs.getString("vac_pfzrUse"); // 시간별 화이자 잔여량
 			
-			String chk = "insert into tmpInstTBL values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String chk = "insert into tmpInstTBL values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(chk);
 			pstmt.setString(1, instAddr1);
 			pstmt.setString(2, instAddr2);
@@ -46,23 +46,18 @@
 			pstmt.setString(5, instName);
 			pstmt.setString(6, phone);
 			pstmt.setString(7, WorkHr);
-			pstmt.setString(8, instName);
-			pstmt.setString(9, selectTime);
-			pstmt.setString(10, mdnTotal);
-			pstmt.setString(11, mdnUse);
-			pstmt.setString(12, pfzrTotal);
-			pstmt.setString(13, pfzrUse);
+			pstmt.setString(8, selectTime);
+			pstmt.setString(9, mdnTotal);
+			pstmt.setString(10, mdnUse);
+			pstmt.setString(11, pfzrTotal);
+			pstmt.setString(12, pfzrUse);
 			pstmt.executeUpdate();	
 		}
-		
-		/* addr1=null;
-		addr2=null;
-		addr3=null; */
 		
 		if(pstmt != null) pstmt.close();
 		if(rs != null) rs.close();
 		if(conn != null) conn.close();
-		
-		response.sendRedirect("searchList.jsp");
+
+		// 아이프레임 부모 페이지로 redirect
+		response.sendRedirect("booking2.jsp");
 	%>
-	

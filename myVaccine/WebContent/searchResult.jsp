@@ -13,6 +13,7 @@
 	html, body {margin: 0; padding: 0;}
 	html {position: relative;}
 	body{position:relative; z-index:1; font-family: 'Noto Sans KR', sans-serif;}
+	.align-center{text-align:center;}
 	.form-group .labelArea{height:auto; padding-top:0.75em; padding-bottom:0.75em; background:none;}
 	.infoArea table th{background:#f8f9fa; padding-top:1.25em; padding-bottom:1.25em; width:20%;}
 	.infoArea .titleArea{margin-bottom:1em; border-bottom:1px solid #dee2e6;}
@@ -26,28 +27,57 @@
 	.form-group{display:block;}
 	input[type=radio]{display:none;}
 	input[type=radio]:checked + label{background: #26437e; color: #fff; opacity: 0.9;}
+	input[type=radio]:disabled + label.disabled{background:#e9ecef; color:#777; border-color:#ced4da; opacity:0.9;}
 	label{font-weight:400; width:19%; margin-bottom:0.5em;}
-	label:nth-of-type(5){margin-right:0;}
+	/* label:nth-of-type(5){margin-right:0;} */
 	.vacsInStock{margin-top:1em;}
 	.vacsInStock p{font-weight:700; color:#26437e;}
 	.vacsInStock ul{padding:0;}
 	.vacsInStock ul li{list-style:none; display:inline-block; margin-right:1.5em;}
 	.infoArea{margin-bottom:0;}
-	.btn-outline-default{border:1px solid #26437e; color:#26437e; transition:0.3s;}
+	.btn-outline-default{border:1px solid #26437e; color:#26437e; transition:0.3s; width:100%; margin-bottom:0;}
 	.btn-outline-default:hover{background: #26437e; color: #fff; opacity: 0.9;}
 	.btn-default{background: #26437e; color: #fff; opacity: 0.9; transition:0.3s;}
 	.btn-default:hover{opacity:1; color:#fff;}
+	
+	.timeSelect table th{padding:0.5em 1em;}
 </style>
 <meta charset="UTF-8">
-<title></title>
+<script>
+//페이지 새로고침
+if (self.name != 'reload') {
+    self.name = 'reload';
+    self.location.reload(true);
+}
+else self.name = ''; 
+
+// 시간별 백신 잔여량과 총량을 가져와서 잔여량과 총량이 동일할 때 radio button이 선택되지 않도록 비활성화(disabled)
+console.log("input disabled test start");
+$(document).ready(function(){
+	var arrList = $(".timeSelectArea tbody tr td");
+	
+	$.each(arrList, function(index, item){
+		var vac = $(item).text();
+		var strArray = vac.split('/');
+		
+		if(strArray[0] % strArray[1] == 0){
+			$(this).parent().children("th").find("input").attr("disabled", true);
+			$(this).parent().children("th").find("label").addClass("disabled");
+		}
+	});
+});
+console.log("input disabled test end");
+</script>
 </head>
 <body class="infoArea">
 	<%@ include file="dbconn.jsp" %>
 	<%
+		String id = request.getParameter("id");
+		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select * from instTBL";
+		String sql = "select * from tmpInstTBL";
 		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery();
 		
@@ -64,8 +94,8 @@
 			String mdnUse = rs.getString("vac_mdnUse"); // 시간별 모더나 잔여량
 			String pfzrTotal = rs.getString("vac_pfzrTotal"); // 시간별 화이자 총량
 			String pfzrUse = rs.getString("vac_pfzrUse"); // 시간별 화이자 잔여량
-	%>
-	
+			
+		%>
 		<div class="titleArea">
 			<p class="title"><%=inst %></p>
 			<p class="addressText"><%=instAddr1 %> <%=instAddr2 %> <%=instAddr3 %> <%=instAddr4 %></p>
@@ -86,43 +116,61 @@
 		</div>
 		<!-- 시간 선택 시 텍스트 변경 이벤트 추가 -->
 		<script type="text/javascript">
-	  		$(document).ready(function(){
-	  			/* 시간 초기값(09:00) */
-	  			document.getElementById('selectTime').innerText = $('input[name=time]:checked').val(); 	
-	  		});
-	  			
 			function getTime(event) {
 				var selectTime = event.target.value;
 				document.getElementById('selectTime').innerText = selectTime;
 				console.log(selectTime);
 			}
 	 	</script>	
+		<%
+			}
+		%>
 		
 		<div class="timeSelect">
 			<p class="timeSelectText">시간선택: <span id="selectTime"></span></p>
 			<div class="timeSelectArea">
 				<form>
-					<div class="form-group">
-						<input type="radio" name="time" value="09:00" id="time09" checked onclick="getTime(event)"><label for="time09" class="btn btn-outline-default">09:00</label>	
-						<input type="radio" name="time" value="10:00" id="time10" onclick="getTime(event)"><label for="time10" class="btn btn-outline-default">10:00</label>	
-						<input type="radio" name="time" value="11:00" id="time11" onclick="getTime(event)"><label for="time11" class="btn btn-outline-default">11:00</label>	
-						<input type="radio" name="time" value="12:00" id="time12" onclick="getTime(event)"><label for="time12" class="btn btn-outline-default">12:00</label>
-						<input type="radio" name="time" value="13:00" id="time13" onclick="getTime(event)"><label for="time13" class="btn btn-outline-default">13:00</label>
-						<input type="radio" name="time" value="14:00" id="time14" onclick="getTime(event)"><label for="time14" class="btn btn-outline-default">14:00</label>	
-						<input type="radio" name="time" value="15:00" id="time15" onclick="getTime(event)"><label for="time15" class="btn btn-outline-default">15:00</label>	
-						<input type="radio" name="time" value="16:00" id="time16" onclick="getTime(event)"><label for="time16" class="btn btn-outline-default">16:00</label>	
-						<input type="radio" name="time" value="17:00" id="time17" onclick="getTime(event)"><label for="time17" class="btn btn-outline-default">17:00</label>	
-						<input type="radio" name="time" value="18:00" id="time18" onclick="getTime(event)"><label for="time18" class="btn btn-outline-default">18:00</label>	
-					</div>
+					<table class="align-center">
+						<thead>
+							<tr>
+								<th>시간 선택</th>
+								<th>모더나</th>
+								<th>화이자</th>
+							</tr>
+						</thead>
+						<tbody>
+							<%
+								String timeSql = "select date_format(vac_time, '%H:%i'), vac_mdnTotal, vac_mdnUse, vac_pfzrTotal, vac_pfzrUse from tmpInstTBL";
+								pstmt = conn.prepareStatement(timeSql);
+								rs = pstmt.executeQuery();
+								
+								while(rs.next()){
+									String selectTime = rs.getString("date_format(vac_time, '%H:%i')"); // 접종 시간
+									String mdnTotal = rs.getString("vac_mdnTotal"); // 시간별 모더나 총량
+									String mdnUse = rs.getString("vac_mdnUse"); // 시간별 모더나 잔여량
+									String pfzrTotal = rs.getString("vac_pfzrTotal"); // 시간별 화이자 총량
+									String pfzrUse = rs.getString("vac_pfzrUse"); // 시간별 화이자 잔여량
+									
+							%>
+							<tr class="<%=selectTime %>">
+								<th>
+									<div class="form-group">
+										<input type="radio" name="time" value="<%=selectTime %>" id="time<%=selectTime %>" onclick="getTime(event)"><label for="time<%=selectTime %>" class="btn btn-outline-default"><%=selectTime %></label>				
+									</div>
+								</th>
+								<td><span class="mdn stock"><%=mdnUse %></span> &sol; <span class="mdn total"><%=mdnTotal %></span></td>
+								<td><span class="pfzr stock"><%=pfzrUse %></span> &sol; <span class="pfzr total"><%=pfzrTotal %></span></td>
+							</tr>
+							<%
+								}
+							%>
+						</tbody>
+					</table>
 				</form>
 			</div>
 		</div>
-		<div class="vacsInStock">
-			<p>잔여 백신 수량: (모더나)<%=mdnUse %>/<%=mdnTotal %> | (화이자)<%=pfzrUse %>/<%=pfzrTotal %></p>
-		</div>
-	<%
-		}
-	%>
+									
+									
 	<%
        	if(rs != null) rs.close();
    		if(pstmt != null) pstmt.close();

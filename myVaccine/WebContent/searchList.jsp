@@ -29,7 +29,14 @@
 		.btn-default:hover{opacity:1; color:#fff;}
 	</style>
 <meta charset="UTF-8">
-<title></title>
+<script>
+	// 페이지 새로고침
+	if (self.name != 'reload') {
+	    self.name = 'reload';
+	    self.location.reload(true);
+	}
+	else self.name = '';	
+</script>
 </head>
 <body>
 	<ul>
@@ -38,8 +45,7 @@
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
 					        				
-			String sql = "select distinct p_instName,p_instAddress1,p_instAddress2 from tmpInstTBL";
-			//String sql = "select distinct p_instName from tmpInstTBL";
+			String sql = "select distinct p_instName,p_instAddress1,p_instAddress2, p_instPhone from tmpInstTBL";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 					        				
@@ -47,12 +53,15 @@
 				String instName = rs.getString("p_instName");
 				String instAddr1 = rs.getString("p_instAddress1");	
 				String instAddr2 = rs.getString("p_instAddress2");
+				String phone = rs.getString("p_instPhone");
 		%>
 		<li>
-			<a href="searchResult.jsp?id=<%=instName %>">
-				<span class="lilText"><%=instAddr1 %> &gt; <%=instAddr2 %></span> 
-				<span id="instNameText" class="instNameText"><%=instName %></span>
-			</a>
+			<!-- <form name="searchList" method="post"> -->
+				<button name="instName">
+					<span class="lilText"><%=instAddr1 %> &gt; <%=instAddr2 %></span> 
+					<span id="instNameText" class="instNameText"><%=instName %></span>
+				</button>
+			<!-- </form> -->
 		</li>
 		<%
 			}
