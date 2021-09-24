@@ -5,7 +5,7 @@
 <%
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-	String status = "select * from instTBL";
+	String status = "select * from tmpInstTBL";
 	pstmt = conn.prepareStatement(status);
 	rs = pstmt.executeQuery();
 	if (rs.next()){
