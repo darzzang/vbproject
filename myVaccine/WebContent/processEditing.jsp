@@ -25,7 +25,7 @@
 		String select = "select * from vac";
 		pstmt = conn.prepareStatement(select);
 		rs = pstmt.executeQuery();
-		while(rs.next()){//booking, checking과는 달리 primary key가 겹치거나 null이 될 일이 없다.
+		while(rs.next()){
 			//vac 테이블의 값
 			String cvac = rs.getString("v_vaccine");	
 			String cname = rs.getString("v_name");

@@ -93,22 +93,7 @@
 										</tr>
 										<tr>
 											<th>휴대폰 번호</th>
-											<td>
-												<div class="col-sm-8 inputArea">
-													<div class="row phnNumArea">
-														<div class="col-3">
-															<input type="text" id="phone1" name="phone1" maxlength="3" size="4" class="form-control" required value="<%=phone1%>">
-														</div>
-														<span class="col-1 align-center">-</span>
-														<div class="col-3">
-															<input type="text" id="phone2" name="phone2" maxlength="4" size="4" class="form-control" required value="<%=phone2%>">
-														</div>
-														<span class="col-1 align-center">-</span>
-														<div class="col-3">
-															<input type="text" id="phone3" name="phone3" maxlength="4" size="4" class="form-control" required value="<%=phone3%>">
-														</div>
-													</div>
-												</div>
+											<td><%=phone1 %> - <%=phone2 %> - <%=phone3 %>
 											</td>
 										</tr>
 										
@@ -149,7 +134,7 @@
 							<!-- 페이지 구성 시 필요없는 버튼이 있으면 li 삭제 -->
 							<div class="btnArea">
 								<ul class="row justify-content-center">
-									<li class="col-3"><input type="button" class="btn bookingBtn" value="예약수정" onclick="checkBooking()"></li>
+									<li class="col-3"><input type="submit" class="btn bookingBtn" value="예약수정" onclick="checkBooking()"></li>
 									<li class="col-3"><a href="#" class="btn btn-secondary">취소</a></li>
 								</ul>
 							</div>

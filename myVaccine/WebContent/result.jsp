@@ -124,7 +124,7 @@
 					<!-- 페이지 구성 시 필요없는 버튼이 있으면 li 삭제 -->
 					<div class="col-sm-8 offset-sm-2 btnArea">
 						<ul class="row justify-content-center">
-							<li class="col-3"><form action = "bookingCheck.jsp" method="post"><button class="btn btn-outline-default">수정</button></form></li>
+							<li class="col-3"><form action = "bookingEdit.jsp" method="post"><button class="btn btn-outline-default">수정</button></form></li>
 							<li class="col-3"><a href="#" class="btn btn-default">확인</a></li>
 							<li class="col-3"><form action = "processCancel.jsp" method="post"><button class="btn btn-secondary">취소</button></form></li>
 						</ul>
