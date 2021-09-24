@@ -24,7 +24,7 @@
 		pstmt = conn.prepareStatement(select);
 		rs = pstmt.executeQuery();
 		
-		while (rs.next()){
+		if (rs.next()){
 			String appdate = rs.getString("p_appDate");
 			String instName = rs.getString("p_instName");
 			String instAddr1 = rs.getString("p_instAddress1");	
