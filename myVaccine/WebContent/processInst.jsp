@@ -2,16 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ include file="dbconn.jsp" %>
+	
+
 	<%
 		request.setCharacterEncoding("UTF-8");
-	
+		
 		String date = request.getParameter("date"); // 날짜
 		String addr1 = request.getParameter("addr1"); // 주소1(광역시도)
 		String addr2 = request.getParameter("addr2"); // 주소2(시군구)
 		String addr3 = request.getParameter("addr3"); // 주소3(읍면동)
-		String addr = addr1+addr2;
 		
-		// instTBL의 임시저장 테이블(tmpinstTBL)을 만들어서 addr3의 조건이 맞으면 데이터 저장 후 모달창에 출력
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
@@ -54,10 +54,10 @@
 			pstmt.executeUpdate();	
 		}
 		
-		
 		if(pstmt != null) pstmt.close();
 		if(rs != null) rs.close();
 		if(conn != null) conn.close();
-		
-		response.sendRedirect("searchList.jsp");
+
+		// 아이프레임 부모 페이지로 redirect
+		response.sendRedirect("booking2.jsp");
 	%>
