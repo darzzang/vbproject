@@ -19,15 +19,20 @@
 <script type="text/javascript">
 	
 	/* '검색' 버튼에 onclick으로 이벤트 설정 --> 추후에 유효성 검사 후 이벤트 재설정 필요! */
-	/*
+	
 	function showResult() {
+		
+		document.stausSearch.target = 'ifrm';
+		document.stausSearch.action = '/processStatus_Joo.jsp';
+		document.stausSearch.submit();
+		
 		if ($('#ResultArea').css('display') == 'none') {
 			$('#ResultArea').slideDown();
 		} else {
 			$('#ResultArea').hide();
 		}
 	}
-	*/
+	
 </script>
 
 
@@ -47,7 +52,7 @@
 				<h2>검색</h2>
 				<!-- 검색영역 시작 -->
 				<div class="row searchArea">
-					<form id="vsearch" name="vsearch" action="processStatus_Joo.jsp" method="post" target="statusResult">
+					<form id="stausSearch" name="stausSearch" method="post">
 						<div class="formAreaInner">
 							<!-- 백신 선택(checkbox, 필수) -->
 							<div class="form-group row">
@@ -118,7 +123,7 @@
 							</div>
 						</div> 
 					</form>
-					<iframe id="statusSearch" name="statusSeach" style="display:none" ></iframe>
+					<iframe name='ifrm' style="display:none"></iframe>
 				</div>
 				<!--// 검색영역 종료 -->
 				
@@ -127,26 +132,25 @@
 					<div class="resultTitle">
 						<h2>검색 결과</h2>
 						<%
-								 	PreparedStatement pstmt = null;
-		        					ResultSet rs = null;
-		        					int cnt = 0;
-		        							
-			        				String sql = "select count(distinct p_instName) from tmpInstTBL";
-			        				pstmt = conn.prepareStatement(sql);
-			        				rs = pstmt.executeQuery();
-			        				
-			        				while(rs.next()){
-			        					cnt = rs.getInt(1);
-								%>
-				        		<p>검색 결과 총 <%=cnt%>개</p>
-				        		<%
-			        				}
-				        		%>
-				        		<div class="col-sm-4 instArea">
-				        			<iframe class="ifrm_left" src="statusSearch.jsp"></iframe>
-				        		</div>
-					</div>
-					
+						 	PreparedStatement pstmt = null;
+        					ResultSet rs = null;
+        					int cnt = 0;
+        							
+	        				String sql = "select count(distinct p_instName) from tmpInstTBL";
+	        				pstmt = conn.prepareStatement(sql);
+	        				rs = pstmt.executeQuery();
+	        				
+	        				while(rs.next()){
+	        					cnt = rs.getInt(1);
+						%>
+		        		<p>검색 결과 총 <%=cnt%>개</p>
+		        		<%
+	        				}
+		        		%>
+		        	</div>
+	        		<div class="col-sm-4 instArea">
+	        			<iframe class="ifrmResult" src="statusResult.jsp"></iframe>
+	        		</div>
 				</div>
 				<!--// 검색 결과 영역 종료 -->
 			</div>

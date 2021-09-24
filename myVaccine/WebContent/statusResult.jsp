@@ -5,10 +5,10 @@
 <%
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-	String status = "select * from tmpInstTBL";
+	String status = "select * from instTBL";
 	pstmt = conn.prepareStatement(status);
 	rs = pstmt.executeQuery();
-	while (rs.next()){
+	if (rs.next()){
 		String appdate = rs.getString("p_appDate");
 		String instName = rs.getString("p_instName");
 		String instAddr1 = rs.getString("p_instAddress1");	
@@ -26,7 +26,6 @@
 <div class="accordionArea">
 	<div class="accordion" id="accoResult">
 		<div class="accordion-item">
-		<iframe class="ifrm_left" src="statusSearch.jsp"></iframe>
 			<div class="accordion-header" id="accoHead_1">
 				<div class="accordion-button" data-bs-toggle="collapse" data-bs-target="#accoBody_1" aria-expanded="true" aria-controls="accoBody_1">
 					<div>
@@ -73,17 +72,17 @@
 					</div>
 				</div>
 			</div>
-		</div>
-			<%
-				}
-			%>
-			<%
-				if (rs != null)
-					rs.close();
-				if (pstmt != null)
-					pstmt.close();
-				if (conn != null)
-					conn.close();
-			%>
+		</div>	
 	</div>
 </div>
+<%
+	}
+%>
+<%
+	if (rs != null)
+		rs.close();
+	if (pstmt != null)
+		pstmt.close();
+	if (conn != null)
+		conn.close();
+%>
