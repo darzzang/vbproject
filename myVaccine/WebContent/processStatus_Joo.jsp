@@ -20,7 +20,7 @@
 		pstmt = conn.prepareStatement(delete);
 		pstmt.executeUpdate();
 		
-		String select = "select * from instTBL where p_instAddress3 = '" + addr3 +"'";
+		String select = "select * from instTBL where p_instAddress3 = '" + addr3 + "'and vac_time = '"+ time +"'";
 		pstmt = conn.prepareStatement(select);
 		rs = pstmt.executeQuery();
 		
@@ -63,5 +63,5 @@
 		if(rs != null) rs.close();
 		if(conn != null) conn.close();
 		
-		response.sendRedirect("statusSearch.jsp");
+		response.sendRedirect("statusResult.jsp");
 	%>
