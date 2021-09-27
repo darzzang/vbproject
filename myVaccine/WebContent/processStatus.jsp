@@ -63,5 +63,5 @@
 		if(rs != null) rs.close();
 		if(conn != null) conn.close();
 		
-		response.sendRedirect("statusResult.jsp");
+		response.sendRedirect("status.jsp");
 	%>
