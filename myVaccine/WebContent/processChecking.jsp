@@ -26,8 +26,8 @@
 		pstmt = conn.prepareStatement(delete);
 		pstmt.executeUpdate();
 		
-		//입력받은 번호로 data 테이블 검색
-		String select = "select * from data where v_phone = '" + phone + "'";
+		//입력받은 번호로 bigdata 테이블 검색
+		String select = "select * from bigdata where v_phone = '" + phone + "'";
 		pstmt = conn.prepareStatement(select);
 		rs = pstmt.executeQuery();
 		if(rs.next()){//입력받은 번호가 data에 있으면
@@ -42,7 +42,7 @@
 			String cidNum = rs.getString("v_idNum");
 				
 			//data에서 불러온 데이터를 vac에 저장한다
-			String check = "insert into vac values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String check = "insert into vac(v_vaccine, v_name, v_idNum1, v_idNum2, v_phone1, v_phone2, v_phone3, v_idNum, v_phone) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(check);
 			pstmt.setString(1, cvac);
 			pstmt.setString(2, cname);
