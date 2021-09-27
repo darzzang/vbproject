@@ -21,7 +21,7 @@ create table if not exists vac(
 	p_instName VARCHAR(50),
 	p_instPhone VARCHAR(20),
 	p_instWorkHour TEXT,
-	primary key(v_name)
+	primary key(v_phone)
 )default CHARSET=utf8;
 
 --예약 수정 페이지에서 수정 중 중간에 취소할 경우를 대비하기 위해 사용하는 임시 테이블.
@@ -43,7 +43,7 @@ create table if not exists edit(
 	p_instName VARCHAR(50),
 	p_instPhone VARCHAR(20),
 	p_instWorkHour TEXT,
-	primary key(v_name)
+	primary key(v_phone)
 )default CHARSET=utf8;
 
 create table if not exists data(

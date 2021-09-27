@@ -11,9 +11,7 @@
 	<%@ include file="dbconn.jsp" %>
 	<%
 		request.setCharacterEncoding("UTF-8");
-	
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+
 		
 		String vaccine = request.getParameter("vaccine");	//벡신 종류
 		String name = request.getParameter("name");			//이름
@@ -21,11 +19,18 @@
 		String idNum2 = request.getParameter("idNum2");		//주민번호 7번째자리
 		String idNum = idNum1 + idNum2;
 		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		//vac 가져오기 - 수정을 하기 위해서는 result에서 수정버튼을 눌러야 한다. 
 		//result 페이지로 가기 위해서는 예약 -> 결과 or 조회 -> 결과의 과정을 거쳐야 하는데 이때 입력한 사용자 정보가 vac에 저장되어 있다.
 		String select = "select * from vac";
 		pstmt = conn.prepareStatement(select);
 		rs = pstmt.executeQuery();
+				
+		String delete = "delete from edit";
+		pstmt = conn.prepareStatement(delete);
+		pstmt.executeUpdate();
+		
 		while(rs.next()){
 			//vac 테이블의 값
 			String cvac = rs.getString("v_vaccine");	
