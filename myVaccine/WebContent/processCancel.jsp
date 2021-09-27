@@ -28,6 +28,11 @@
 			pstmt = conn.prepareStatement(delete);
 			pstmt.executeUpdate();	
 			
+			//vac의 v_phone과 bigdata의 v_phone이 같은 경우의 값을 지움
+			String bigdelete = "delete from bigdata where v_phone = '"+cphone+"'";
+			pstmt = conn.prepareStatement(bigdelete);
+			pstmt.executeUpdate();
+			
 			//임시 테이블 vac 역시 삭제
 			String delete_vac = "delete from vac";
 			pstmt = conn.prepareStatement(delete_vac);

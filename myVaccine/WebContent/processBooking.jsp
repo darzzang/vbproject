@@ -54,7 +54,8 @@
 			<%
 		}else{//입력받은 phone번호가 등록되어 있지 않은 번호라면
 			//입력받은 값을 결과창에 출력하기 위해 임시로 저장하는 table vac
-			String vac_insert = "insert into vac values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			//9월 27일 기존 data테이블(인적 정보만 있던 테이블)에서 데이터를 받아오던 것에서 bigdata테이블(인적정보+기관정보)에서 데이터를 받아오는 임시 테이블 vac로 변경 
+			String vac_insert = "insert into vac(v_vaccine, v_name, v_idNum1, v_idNum2, v_phone1, v_phone2, v_phone3, v_idNum, v_phone) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(vac_insert);
 			pstmt.setString(1, vaccine);
 			pstmt.setString(2, name);
@@ -66,10 +67,25 @@
 			pstmt.setString(8, idNum);
 			pstmt.setString(9, phone);
 			pstmt.executeUpdate();
-
+			
+			
+			
 			//입력받은 값들을 누적해서 저장하는 table data
 			String data_insert = "insert into data values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(data_insert);
+			pstmt.setString(1, vaccine);
+			pstmt.setString(2, name);
+			pstmt.setString(3, idNum1);
+			pstmt.setString(4, idNum2);
+			pstmt.setString(5, phone1);
+			pstmt.setString(6, phone2);
+			pstmt.setString(7, phone3);
+			pstmt.setString(8, idNum);
+			pstmt.setString(9, phone);
+			pstmt.executeUpdate();
+			
+			String bigdata_insert = "insert into bigdata(v_vaccine, v_name, v_idNum1, v_idNum2, v_phone1, v_phone2, v_phone3, v_idNum, v_phone) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			pstmt = conn.prepareStatement(bigdata_insert);
 			pstmt.setString(1, vaccine);
 			pstmt.setString(2, name);
 			pstmt.setString(3, idNum1);
