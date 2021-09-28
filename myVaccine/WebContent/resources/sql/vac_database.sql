@@ -13,7 +13,7 @@ create table if not exists vac(
 	v_phone3 varchar(10),
 	v_idNum varchar(10),
 	v_phone varchar(20),
-	p_appDate DATE, 
+	p_appDate varchar(50), 
 	p_instAddress1 VARCHAR(50),
 	p_instAddress2 VARCHAR(50),
 	p_instAddress3 VARCHAR(50),
@@ -35,7 +35,7 @@ create table if not exists edit(
 	v_phone3 varchar(10),
 	v_idNum varchar(10),
 	v_phone varchar(20),
-	p_appDate DATE, 
+	p_appDate varchar(50), 
 	p_instAddress1 VARCHAR(50),
 	p_instAddress2 VARCHAR(50),
 	p_instAddress3 VARCHAR(50),
@@ -69,7 +69,7 @@ create table if not exists bigdata(
 	v_phone3 varchar(10),
 	v_idNum varchar(10),
 	v_phone varchar(20),
-	p_appDate DATE, 
+	p_appDate varchar(50), 
 	p_instAddress1 VARCHAR(50),
 	p_instAddress2 VARCHAR(50),
 	p_instAddress3 VARCHAR(50),
@@ -82,7 +82,7 @@ create table if not exists bigdata(
 )default CHARSET=utf8;
 
 drop table bigdata;
-
+delete from bigdata;
 delete from data where v_phone = '01111111111';
 select * from data where v_phone = '01111111111';
 insert into vac values('pakf');
