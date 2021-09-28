@@ -33,29 +33,27 @@
 			String instAddr4 = rs.getString("p_instAddress4");
 			String phone = rs.getString("p_instPhone");
 			String WorkHr = rs.getString("p_instWorkHour");
-			String inst = rs.getString("vac_inst");
 			String selectTime = rs.getString("vac_time"); // 접종 시간
 			String mdnTotal = rs.getString("vac_mdnTotal"); // 시간별 모더나 총량
 			String mdnUse = rs.getString("vac_mdnUse"); // 시간별 모더나 잔여량
 			String pfzrTotal = rs.getString("vac_pfzrTotal"); // 시간별 화이자 총량
 			String pfzrUse = rs.getString("vac_pfzrUse"); // 시간별 화이자 잔여량
 			
-			String status = "insert into tmpInstTBL values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String status = "insert into tmpInstTBL values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(status);
 			pstmt.setString(1, appdate);
-			pstmt.setString(2, instAddr1);
-			pstmt.setString(3, instAddr2);
-			pstmt.setString(4, instAddr3);
-			pstmt.setString(5, instAddr4);
-			pstmt.setString(6, inst);
+			pstmt.setString(2, instName);
+			pstmt.setString(3, instAddr1);
+			pstmt.setString(4, instAddr2);
+			pstmt.setString(5, instAddr3);
+			pstmt.setString(6, instAddr4);
 			pstmt.setString(7, phone);
 			pstmt.setString(8, WorkHr);
-			pstmt.setString(9, instName);
-			pstmt.setString(10, selectTime);
-			pstmt.setString(11, mdnTotal);
-			pstmt.setString(12, mdnUse);
-			pstmt.setString(13, pfzrTotal);
-			pstmt.setString(14, pfzrUse);
+			pstmt.setString(9, selectTime);
+			pstmt.setString(10, mdnTotal);
+			pstmt.setString(11, mdnUse);
+			pstmt.setString(12, pfzrTotal);
+			pstmt.setString(13, pfzrUse);
 			pstmt.executeUpdate();	
 		}
 		
