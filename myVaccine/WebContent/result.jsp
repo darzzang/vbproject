@@ -99,17 +99,28 @@
 									<th>선택한 백신</th>
 									<td><%=vac %></td>
 								</tr>
+								<%
+									}
+
+									String sql2 = "select p_instName, p_instAddress1, p_instAddress2, p_instAddress3, p_instAddress4, p_appDate, date_format(vac_time, '%H:%i') from tmpInstTBL2";
+									pstmt = conn.prepareStatement(sql2);
+									rs = pstmt.executeQuery();
+									while (rs.next()){
+										String instName = rs.getString("p_instName");
+										String addr1 = rs.getString("p_instAddress1");
+										String addr2 = rs.getString("p_instAddress2");
+										String addr3 = rs.getString("p_instAddress3");
+										String addr4 = rs.getString("p_instAddress4");
+										String appDate = rs.getString("p_appDate");
+										String selectTime = rs.getString("date_format(vac_time, '%H:%i')");
+								%>
 								<tr>
 									<th>의료기관</th>
-									<td>의료기관명</td>
+									<td><%= instName %> (<%=addr1 %> <%=addr2 %> <%=addr3 %> <%=addr4 %>)</td>
 								</tr>
 								<tr>
 									<th>1차 접종일시</th>
-									<td style="color:#0048F5"> </td>
-								</tr>
-								<tr>
-									<th>2차 접종일시</th>
-									<td style="color:#0048F5"> </td>
+									<td style="color:#0048F5"><%= appDate %> ( <%=selectTime %> )</td>
 								</tr>
 								<%
 									}
@@ -117,6 +128,11 @@
 									if(pstmt != null) pstmt.close();
 									if(conn != null) conn.close();
 								%>
+								<tr>
+									<th>2차 접종일시</th>
+									<td style="color:#0048F5"> 1차 접종일로부터 6주 후</td>
+								</tr>
+
 							</tbody>
 						</table>
 					</div>
