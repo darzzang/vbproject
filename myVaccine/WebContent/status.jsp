@@ -26,8 +26,6 @@
 		
 		if ($('#ResultArea').css('display') == 'none') {
 			$('#ResultArea').slideDown();
-		} else {
-			$('#ResultArea').hide();
 		}
 		
 		document.getElementById("statusResult").contentDocument.location.reload(true);
@@ -150,8 +148,8 @@
 	        				}
 		        		%>
 		        	</div>
-	        		<div class="col-sm-4 instArea">
-	        			<iframe class="ifrmResult" src="statusResult.jsp"></iframe>
+	        		<div class="instArea">
+	        			<iframe class="ifrmResult" id="statusResult" src="statusResult.jsp"></iframe>
 	        		</div>
 				</div>
 				<!--// 검색 결과 영역 종료 -->
