@@ -1,7 +1,7 @@
 drop table institution;
 
 create table if not exists institution(
-	p_appDate DATE, 
+	p_appDate VARCHAR(50), 
 	p_instAddress1 VARCHAR(50),
 	p_instAddress2 VARCHAR(50),
 	p_instAddress3 VARCHAR(50),
