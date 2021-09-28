@@ -1,25 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <head>
+	<link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<script src="resources/js/bootstrap.bundle.min.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+
 	<style>
-		.searchResultArea h2{margin-bottom:1em;}
-		.searchResultArea .searchArea .form-group{margin-left:0; margin-right:0; }
-		.searchResultArea .searchArea{width:100%; margin:0 auto;}
-		.searchResultArea .searchArea .form-group{max-height:auto;}
-		.searchResultArea .searchArea .datePicker input, .statusArea .searchArea .timePicker select{width:50%;}
-		.searchResultArea .searchArea .placePicker select{display:inline-block; width:32%;}
-		.searchResultArea .searchArea .btnArea{margin-top:1.5em;}
-		.searchResultArea .searchArea .btnArea input{width:100%;}
-		.searchResultArea{margin-top:3em; display:none;}
-		.searchResultArea .resultTitle{display:flex; align-items: center; justify-content: space-between;}
-		.searchResultArea .accordionArea p{font-size:1em; margin-bottom:0.5em;}
-		.searchResultArea .accordionArea h3{font-size:1.25em;}
-		.searchResultArea .accordion-body{padding:3em 5em;}
-		.searchResultArea .accordion-body h4{font-size:1.25em; font-weight:700; margin-bottom:1.25em;}
-		.searchResultArea .accordion-body dd{margin-bottom:1.5em;}
-		.searchResultArea .accordion-body table th{text-align:center;}
-		.searchResultArea .accordion-body table ul{padding-left:0; margin-bottom:0;}
-		.searchResultArea .accordion-body table ul li{list-style:none; display:inline-block; margin-right:2em;}
+		html, body {margin: 0; padding: 0;}
+		html {position: relative;}
+		body{position:relative; z-index:1; font-family: 'Noto Sans KR', sans-serif;}
+		.accordionArea p{font-size:1em; margin-bottom:0.5em;}
+		.accordionArea h3{font-size:1.25em;}
+		.accordion-body{padding:3em 5em;}
+		.accordion-body h4{font-size:1.25em; font-weight:700; margin-bottom:1.25em;}
+		.accordion-body dd{margin-bottom:1.5em;}
+		.accordion-body table th,.accordion-body table td{text-align:center; vertical-align:middle;}
+		.accordion-body table ul{padding-left:0; margin-bottom:0;}
+		.accordion-body table ul li{list-style:none; display:inline-block; margin-right:2em;}
 		
 			
 	</style>
@@ -31,6 +30,7 @@
 		}
 		else self.name = '';	
 	</script>
+	
 </head>
 
 
@@ -56,7 +56,7 @@
 		String pfzrTotal = rs.getString("vac_pfzrTotal"); // 시간별 화이자 총량
 		String pfzrUse = rs.getString("vac_pfzrUse"); // 시간별 화이자 잔여량
 %>
-<body class="statusArea">
+<body>
 	<div class="accordionArea">
 		<div class="accordion" id="accoResult">
 			<div class="accordion-item">
@@ -86,19 +86,19 @@
 								
 									<thead class="table-light">
 										<tr>
-											<th>접종 가능 시간</th>
-											<th>잔여 백신 수량</th>
+											<th rowspan="2">접종 가능 시간</th>
+											<th colspan="2">잔여 백신 수량</th>
+										</tr>
+										<tr>
+											<th>모더나</th>
+											<th>화이자</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
 											<th><%=selectTime%></th>
-											<td>
-												<ul>
-													<li>모더나: <%=mdnUse%>/<%=mdnTotal%></li>
-													<li>화이자: <%=pfzrUse%>/<%=pfzrTotal%></li>
-												</ul>
-											</td>
+											<td><%=mdnUse%> &sol; <%=mdnTotal%></td>
+											<td><%=pfzrUse%> &sol; <%=pfzrTotal%></td>
 										</tr>
 									</tbody>
 								</table>
