@@ -24,6 +24,7 @@
 		rs = pstmt.executeQuery();
 		
 		while (rs.next()){
+			String appdate = rs.getString("p_appDate");
 			String instName = rs.getString("p_instName");
 			String instAddr1 = rs.getString("p_instAddress1");	
 			String instAddr2 = rs.getString("p_instAddress2");	
@@ -37,20 +38,21 @@
 			String pfzrTotal = rs.getString("vac_pfzrTotal"); // 시간별 화이자 총량
 			String pfzrUse = rs.getString("vac_pfzrUse"); // 시간별 화이자 잔여량
 			
-			String chk = "insert into tmpInstTBL values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-			pstmt = conn.prepareStatement(chk);
-			pstmt.setString(1, instAddr1);
-			pstmt.setString(2, instAddr2);
-			pstmt.setString(3, instAddr3);
-			pstmt.setString(4, instAddr4);
-			pstmt.setString(5, instName);
-			pstmt.setString(6, phone);
-			pstmt.setString(7, WorkHr);
-			pstmt.setString(8, selectTime);
-			pstmt.setString(9, mdnTotal);
-			pstmt.setString(10, mdnUse);
-			pstmt.setString(11, pfzrTotal);
-			pstmt.setString(12, pfzrUse);
+			String status = "insert into tmpInstTBL values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			pstmt = conn.prepareStatement(status);
+			pstmt.setString(1, appdate);
+			pstmt.setString(2, instName);
+			pstmt.setString(3, instAddr1);
+			pstmt.setString(4, instAddr2);
+			pstmt.setString(5, instAddr3);
+			pstmt.setString(6, instAddr4);
+			pstmt.setString(7, phone);
+			pstmt.setString(8, WorkHr);
+			pstmt.setString(9, selectTime);
+			pstmt.setString(10, mdnTotal);
+			pstmt.setString(11, mdnUse);
+			pstmt.setString(12, pfzrTotal);
+			pstmt.setString(13, pfzrUse);
 			pstmt.executeUpdate();	
 		}
 		
