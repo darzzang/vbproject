@@ -72,31 +72,7 @@
 			pstmt.setString(9, ctime);
 			pstmt.executeUpdate();
 		}
-/* 		while(rs.next()){
-			String cdate = rs.getString("p_appDate");	
-			String cinstname = rs.getString("p_instName");
-			String caddr1 = rs.getString("p_instAddress1");
-			String caddr2 = rs.getString("p_instAddress2");
-			String caddr3 = rs.getString("p_instAddress3");
-			String caddr4 = rs.getString("p_instAddress4");
-			String cinstphone = rs.getString("p_instPhone");
-			String cworkhour = rs.getString("p_instWorkHour");
-			String ctime = rs.getString("vac_time");
-			
-			//tmpInstTBL2값을 bigdata에 저장한다
-			String tmp2_insert = "insert into bigdata(p_appDate, p_instName, p_instAddress1, p_instAddress2, p_instAddress3, p_instAddress4, p_instPhone, p_instWorkHour, vac_time) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-			pstmt = conn.prepareStatement(tmp2_insert);
-			pstmt.setString(1, cdate);
-			pstmt.setString(2, cinstname);
-			pstmt.setString(3, caddr1);
-			pstmt.setString(4, caddr2);
-			pstmt.setString(5, caddr3);
-			pstmt.setString(6, caddr4);
-			pstmt.setString(7, cinstphone);
-			pstmt.setString(8, cworkhour);
-			pstmt.setString(9, ctime);
-			pstmt.executeUpdate();	
-		} */
+
 			if(pstmt != null) pstmt.close();
 			if(rs != null) rs.close();
 			if(conn != null) conn.close();
