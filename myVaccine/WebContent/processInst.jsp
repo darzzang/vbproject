@@ -54,6 +54,11 @@
 			pstmt.setString(12, pfzrTotal);
 			pstmt.setString(13, pfzrUse);
 			pstmt.executeUpdate();	
+			
+			String update = "update tmpInstTBL set p_appDate ='"+date+"'";
+			pstmt = conn.prepareStatement(update);
+			pstmt.executeUpdate();
+			
 		}
 		
 		if(pstmt != null) pstmt.close();
