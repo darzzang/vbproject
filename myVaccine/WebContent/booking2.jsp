@@ -23,7 +23,6 @@
 		$('#showRes').trigger('click');
 		$("#showRes").bind('click', function() {
 			
-		    
 			document.findInst.target = 'ifrm';
 		    document.findInst.action = 'processInst.jsp';
 		    document.findInst.submit();
@@ -36,8 +35,18 @@
 		    document.getElementById("searchList").contentDocument.location.reload(true);
 		    document.getElementById("searchResult").contentDocument.location.reload(true);
 		});
+		
+
+		/* 아이프레임 내 form 값 submit */
+		$("#regButton").bind('click', function() {
+			$("#searchResult").contents().find("#sendformBtn").trigger('click');
+			location.href="result.jsp"
+		});
+		
 	});
+	
 </script>
+
 
 <body>
 	<div class="wrapper">
@@ -156,9 +165,7 @@
 				        <div class="btnArea">
 							<ul class="row justify-content-center">
 								<li class="col-3">
-									<form action = "processBook.jsp" method="post">
-										<input type="submit" class="btn bookingBtn" value="예약">
-									</form>
+									<button class="btn bookingBtn" id="regButton">예약</button>
 								</li>
 								<li class="col-3">
 									<form action = "processCancel.jsp" method="post">
