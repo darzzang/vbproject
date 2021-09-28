@@ -129,7 +129,7 @@ console.log("input disabled test end");
 		<div class="timeSelect">
 			<p class="timeSelectText">시간선택: <span id="selectTime"></span></p>
 			<div class="timeSelectArea">
-				<form>
+				<form name="sendform" action="processBook.jsp" method="post">
 					<table class="align-center">
 						<thead>
 							<tr>
@@ -152,10 +152,11 @@ console.log("input disabled test end");
 									String pfzrUse = rs.getString("vac_pfzrUse"); // 시간별 화이자 잔여량
 									
 							%>
+							
 							<tr class="<%=selectTime %>">
 								<th>
 									<div class="form-group">
-										<input type="radio" name="time" value="<%=selectTime %>" id="time<%=selectTime %>" onclick="getTime(event)"><label for="time<%=selectTime %>" class="btn btn-outline-default"><%=selectTime %></label>				
+										<input type="radio" name="time" value="<%=selectTime %>" id="time<%=selectTime %>" onclick="getTime(event)"><label for="time<%=selectTime %>" class="btn btn-outline-default"><%=selectTime %></label>
 									</div>
 								</th>
 								<td><span class="mdn stock"><%=mdnUse %></span> &sol; <span class="mdn total"><%=mdnTotal %></span></td>
@@ -166,10 +167,11 @@ console.log("input disabled test end");
 							%>
 						</tbody>
 					</table>
+					
+					<input type="submit" value="submit" id="sendformBtn" style="display:none;">
 				</form>
 			</div>
-		</div>
-									
+		</div>							
 									
 	<%
        	if(rs != null) rs.close();

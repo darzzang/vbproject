@@ -39,3 +39,8 @@ drop table tmpInstTBL;
 create table if not exists tmpInstTBL like instTBL;
 select * from tmpInstTBL;
 
+
+/* 임시 테이블(processBook.jsp) */
+create table if not exists tmpInstTBL2 like instTBL;
+delete from tmpInstTBL2;
+select * from tmpInstTBL2;

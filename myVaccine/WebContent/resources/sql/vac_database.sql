@@ -77,9 +77,11 @@ create table if not exists bigdata(
 	p_instName VARCHAR(50),
 	p_instPhone VARCHAR(20),
 	p_instWorkHour TEXT,
+	vac_time TIME, /*백신 접종 시간 추가*/
 	primary key(v_phone)
 )default CHARSET=utf8;
 
+drop table bigdata;
 
 delete from data where v_phone = '01111111111';
 select * from data where v_phone = '01111111111';
