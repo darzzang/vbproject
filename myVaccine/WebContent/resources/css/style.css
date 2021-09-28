@@ -159,6 +159,7 @@ footer p{margin-bottom:0;}
 .statusArea .searchResultArea .accordion-body table ul{padding-left:0; margin-bottom:0;}
 .statusArea .searchResultArea .accordion-body table ul li{list-style:none; display:inline-block; margin-right:2em;}
 
+.ifrmResult{width:100%; height:400px;}
 
 /* booking check */
 .loginArea{background:#f8f9fa; padding:3em; border-radius:10px;}
