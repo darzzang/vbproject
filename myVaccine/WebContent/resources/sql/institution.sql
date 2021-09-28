@@ -23,7 +23,7 @@ insert into institution values('2021-01-01', '대구광역시', '동구', '효�
 
 /* instTBL = institution table + vaccine table */
 CREATE TABLE instTBL 
-	SELECT I.p_instAddress1, I.p_instAddress2, I.p_instAddress3, I.p_instAddress4, I.p_instName, I.p_instPhone, I.p_instWorkHour, V.vac_time, V.vac_mdnTotal, V.vac_mdnUse, V.vac_pfzrTotal, V.vac_pfzrUse
+	SELECT I.p_appDate, I.p_instName, I.p_instAddress1, I.p_instAddress2, I.p_instAddress3, I.p_instAddress4, I.p_instPhone, I.p_instWorkHour, V.vac_time, V.vac_mdnTotal, V.vac_mdnUse, V.vac_pfzrTotal, V.vac_pfzrUse
 		FROM institution I 
 			JOIN vaccine V 
 				ON I.p_instName=V.vac_inst;
@@ -44,5 +44,3 @@ select * from tmpInstTBL;
 create table if not exists tmpInstTBL2 like instTBL;
 delete from tmpInstTBL2;
 select * from tmpInstTBL2;
-
-
