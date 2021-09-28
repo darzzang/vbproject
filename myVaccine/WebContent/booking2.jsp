@@ -16,24 +16,27 @@
 <script src="resources/js/bootstrap-datepicker.ko.min.js"></script>
 <script src="resources/js/datepicker_custom.js"></script>
 
-<!-- (참고용) 검색 버튼 클릭 시 검색 결과 영역 출력 -->
 <script type="text/javascript">
-	
-	/* '검색' 버튼에 onclick으로 이벤트 설정 */
-	function showRes() {
+	$(document).ready(function() {
 		
-		document.findInst.target = 'ifrm';
-	    document.findInst.action = '/processInst.jsp';
-	    document.findInst.submit();
-	    
-		if ($('.SearchResultArea').css('display') == 'none') {
-			$('.SearchResultArea').slideDown();
-		}
-		
-		// reset 실패
-		// 참고해볼것:http://112.171.126.71/boards/5/topics/25
-		
-	}
+		/* '검색' 버튼 이벤트 */
+		$('#showRes').trigger('click');
+		$("#showRes").bind('click', function() {
+			
+		    
+			document.findInst.target = 'ifrm';
+		    document.findInst.action = 'processInst.jsp';
+		    document.findInst.submit();
+			
+			if ($('.SearchResultArea').css('display') == 'none') {
+				$('.SearchResultArea').slideDown();
+			}
+			
+			/* 아이프레임 영역 새로고침 */
+		    document.getElementById("searchList").contentDocument.location.reload(true);
+		    document.getElementById("searchResult").contentDocument.location.reload(true);
+		});
+	});
 </script>
 
 <body>
@@ -77,7 +80,7 @@
 						</ul>
 					</div>
 				</div>
-				
+				<!-- // 데이터가 한번에 처리 X 검색 클릭 후 새로고침 해야 데이터 가져옴 -->
 				<div class="row">
 					<div class="col-sm-8 offset-sm-2 findInstitution">
 						<div class="searchArea">
@@ -111,7 +114,7 @@
 						        			</select>
 					        			</div>
 					        			<div class="col-sm-3 btnArea">
-						        			<button type="button" class="btn btn-outline-default" onclick="showRes()">검색</button>
+						        			<button type="button" class="btn btn-outline-default" id="showRes">검색</button>
 						        		</div>
 					        		</div>
 				        		</form>
@@ -140,19 +143,28 @@
 			        				}
 				        		%>
 				        		<div class="col-sm-4 instArea">
-				        			<iframe class="ifrm_left" src="searchList.jsp"></iframe>
+				        			<iframe class="ifrm_left" name="ifrm_left" src="searchList.jsp" id="searchList"></iframe>
+				        			
 				        		</div>
 				        		
 				        		<div class="col-sm-8 infoArea">
-				        			<iframe class="ifrm_right" src="searchResult.jsp"></iframe>
+				        			<iframe class="ifrm_right" name="ifrm_right" src="searchResult.jsp" id="searchResult"></iframe>
 				        		</div>
 				        	</div>
 				        </div>
 				        
 				        <div class="btnArea">
 							<ul class="row justify-content-center">
-								<li class="col-3"><input type="button" class="btn bookingBtn" value="예약" onclick=""></li>
-								<li class="col-3"><form action = "processCancel.jsp" method="post"><button class="btn btn-outline-secondary">취소</button></form></li>
+								<li class="col-3">
+									<form action = "processBook.jsp" method="post">
+										<input type="submit" class="btn bookingBtn" value="예약">
+									</form>
+								</li>
+								<li class="col-3">
+									<form action = "processCancel.jsp" method="post">
+										<button class="btn btn-outline-secondary">취소</button>
+									</form>
+								</li>
 							</ul>
 						</div>	
 					</div>
