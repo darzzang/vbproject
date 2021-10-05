@@ -37,6 +37,11 @@
 			String delete_vac = "delete from vac";
 			pstmt = conn.prepareStatement(delete_vac);
 			pstmt.executeUpdate();
+			
+			//임시 테이블 tmpInstTBL2 역시 삭제
+			String delete_tmp2 = "delete from tmpInstTBL2";
+			pstmt = conn.prepareStatement(delete_tmp2);
+			pstmt.executeUpdate();
 		}
 		
 		if(pstmt != null) pstmt.close();
