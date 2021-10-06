@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="dbconn.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,27 +56,62 @@ else self.name = '';
 console.log("input disabled test start");
 $(document).ready(function(){
 	var arrList = $(".timeSelectArea tbody tr td");
+	var wrapperArray = [];
+	var i = 0;
+	<%
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	
+	String vaccine = "select v_vaccine from vac";
+	pstmt = conn.prepareStatement(vaccine);
+	rs = pstmt.executeQuery();
+	
+	if(rs.next()){
+		String vac = rs.getString("v_vaccine");
+	%>	
+	
+	var vac = "<%=vac%>";
+	console.log(vac);
 	
 	$.each(arrList, function(index, item){
 		var vac = $(item).text();
 		var strArray = vac.split('/');
+		wrapperArray.push(strArray);
 		
-		if(strArray[0] % strArray[1] == 0){
+		// 잔여량이 없으면
+		if(i%2 == 0){ // 모더나
+			
+			/* if(vac == "Moderna" && wrapperArray[i][0] == 0) {
+				$(this).parent().children("th").find("input").attr("disabled", true);
+				$(this).parent().children("th").find("label").addClass("disabled");			
+			} */
+		}
+		//console.log(wrapperArray[i][0]);
+		
+		i++;
+	<%
+		}
+	%>	
+		/* if(strArray[0] == 0){
 			$(this).parent().children("th").find("input").attr("disabled", true);
 			$(this).parent().children("th").find("label").addClass("disabled");
-		}
+		} */
+		
+		
+		
 	});
+	
+	
 });
 console.log("input disabled test end");
 </script>
 </head>
 <body class="infoArea">
-	<%@ include file="dbconn.jsp" %>
 	<%
 		String id = request.getParameter("id");
 		
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+		pstmt = null;
+		rs = null;
 		
 		String sql = "select * from tmpInstTBL";
 		pstmt = conn.prepareStatement(sql);
