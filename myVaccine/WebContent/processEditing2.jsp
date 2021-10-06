@@ -23,12 +23,31 @@
 		ResultSet rs = null;
 		//vac 가져오기 - 수정을 하기 위해서는 result에서 수정버튼을 눌러야 한다. 
 		//result 페이지로 가기 위해서는 예약 -> 결과 or 조회 -> 결과의 과정을 거쳐야 하는데 이때 입력한 사용자 정보가 vac에 저장되어 있다.
-		String select = "select * from vac";
+		String select = "select * from tmpInstTBL2";
 		pstmt = conn.prepareStatement(select);
 		rs = pstmt.executeQuery();
-				
-		String delete = "delete from edit";
-		pstmt = conn.prepareStatement(delete);
+		
+		String appdate = rs.getString("p_appDate");
+		String instName = rs.getString("p_instName");
+		String instAddr1 = rs.getString("p_instAddress1");	
+		String instAddr2 = rs.getString("p_instAddress2");	
+		String instAddr3 = rs.getString("p_instAddress3");
+		String instAddr4 = rs.getString("p_instAddress4");
+		String phone = rs.getString("p_instPhone");
+		String WorkHr = rs.getString("p_instWorkHour");
+		String selectTime = rs.getString("vac_time"); // 접종 시간
+	
+		String insertTBL = "insert into tmpInstTBL2(p_appDate,p_instAddress1,p_instAddress2,p_instAddress3,p_instAddress4,p_instName,p_instPhone,p_instWorkHour, vac_time) values (?,?,?,?,?,?,?,?,?)";
+		pstmt = conn.prepareStatement(insertTBL);
+		pstmt.setString(1, appdate);
+		pstmt.setString(2, instAddr1);
+		pstmt.setString(3, instAddr2);
+		pstmt.setString(4, instAddr3);
+		pstmt.setString(5, instAddr4);
+		pstmt.setString(6, instName);
+		pstmt.setString(7, phone);
+		pstmt.setString(8, WorkHr);
+		pstmt.setString(9, selectTime);
 		pstmt.executeUpdate();
 		
 		while(rs.next()){
