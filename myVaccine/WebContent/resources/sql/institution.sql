@@ -44,3 +44,8 @@ select * from tmpInstTBL;
 create table if not exists tmpInstTBL2 like instTBL;
 delete from tmpInstTBL2;
 select * from tmpInstTBL2;
+
+/* 임시 테이블(processBook.jsp edit용) */
+create table if not exists tmpInstTBL3 like instTBL;
+delete from tmpInstTBL3;
+select * from tmpInstTBL3;

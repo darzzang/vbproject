@@ -23,24 +23,24 @@
 		$('#showRes').trigger('click');
 		$("#showRes").bind('click', function() {
 			
-			document.findInst.target = 'ifrm';
-		    document.findInst.action = 'processInst.jsp';
-		    document.findInst.submit();
+			document.findInstE.target = 'ifrm';
+		    document.findInstE.action = 'processInstEdit.jsp';
+		    document.findInstE.submit();
 			
 			if ($('.SearchResultArea').css('display') == 'none') {
 				$('.SearchResultArea').slideDown();
 			}
 			
 			/* 아이프레임 영역 새로고침 */
-		    document.getElementById("searchList").contentDocument.location.reload(true);
-		    document.getElementById("searchResult").contentDocument.location.reload(true);
+		    document.getElementById("searchListEdit").contentDocument.location.reload(true);
+		    document.getElementById("searchResultEdit").contentDocument.location.reload(true);
 		});
 		
 
 		/* 아이프레임 내 form 값 submit */
-		$("#regButton").bind('click', function() {
-			$("#searchResult").contents().find("#sendformBtn").trigger('click');
-			location.href="result.jsp"
+		$("#regButtonEdit").bind('click', function() {
+			$("#searchResultEdit").contents().find("#sendformBtnE").trigger('click');
+			location.href="resultEdit.jsp"
 		});
 		
 	});
@@ -94,7 +94,7 @@
 					<div class="col-sm-8 offset-sm-2 findInstitution">
 						<div class="searchArea">
 				        	<div class="container-fluid">
-				        		<form name="findInst" id="findInst" method="post">
+				        		<form name="findInstE" id="findInstE" method="post">
 					        		<div class="form-group row datePicker">
 					        			<div class="col-sm-2 labelArea">
 											<label>날짜 선택<span class="require-mark">*</span></label>
@@ -152,12 +152,12 @@
 			        				}
 				        		%>
 				        		<div class="col-sm-4 instArea">
-				        			<iframe class="ifrm_left" name="ifrm_left" src="searchList.jsp" id="searchList"></iframe>
+				        			<iframe class="ifrm_left" name="ifrm_left" src="searchListEdit.jsp" id="searchListEdit"></iframe>
 				        			
 				        		</div>
 				        		
 				        		<div class="col-sm-8 infoArea">
-				        			<iframe class="ifrm_right" name="ifrm_right" src="searchResult.jsp" id="searchResult"></iframe>
+				        			<iframe class="ifrm_right" name="ifrm_right" src="searchResultEdit.jsp" id="searchResultEdit"></iframe>
 				        		</div>
 				        	</div>
 				        </div>
@@ -165,7 +165,7 @@
 				        <div class="btnArea">
 							<ul class="row justify-content-center">
 								<li class="col-3">
-									<button class="btn bookingBtn" id="regButton">예약</button>
+									<button class="btn bookingBtn" id="regButtonEdit">예약</button>
 								</li>
 								<li class="col-3">
 									<form action = "processEditCancel.jsp" method="post">
