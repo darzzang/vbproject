@@ -17,6 +17,16 @@ if (self.name != 'reload') {
     self.location.reload(true);
 }
 else self.name = '';
+
+function button_cancel(){
+	if (confirm("정말 취소하시겠습니까??") == true){    //확인
+	    document.cancel.action = 'processCancel.jsp';
+		document.cancel.submit();
+		alert("예약을 취소하였습니다.");
+	}else{   //취소
+	    return;
+	}
+}
 </script>
 
 <body>
@@ -149,7 +159,7 @@ else self.name = '';
 					<div class="col-sm-8 offset-sm-2 btnArea">
 						<ul class="row justify-content-center">
 							<li class="col-3"><form action = "processConfirm.jsp" method="post"><button class="btn btn-default">예약 확정</button></form></li>
-							<li class="col-3"><form action = "processCancel.jsp" method="post"><button class="btn btn-secondary">취소</button></form></li>
+							<li class="col-3"><form name="cancel" id="cancel" method="post"><button class="btn btn-secondary" onclick="button_cancel()">취소</button></form></li>
 						</ul>
 					</div>
 				</div>

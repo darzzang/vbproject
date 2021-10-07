@@ -69,33 +69,6 @@
 			pstmt.setString(9, phone);
 			pstmt.executeUpdate();
 			
-			//입력받은 값들을 누적해서 저장하는 table data
-			String data_insert = "insert into data values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-			pstmt = conn.prepareStatement(data_insert);
-			pstmt.setString(1, vaccine);
-			pstmt.setString(2, name);
-			pstmt.setString(3, idNum1);
-			pstmt.setString(4, idNum2);
-			pstmt.setString(5, phone1);
-			pstmt.setString(6, phone2);
-			pstmt.setString(7, phone3);
-			pstmt.setString(8, idNum);
-			pstmt.setString(9, phone);
-			pstmt.executeUpdate();
-			
-//			String bigdata_insert = "insert into bigdata(v_vaccine, v_name, v_idNum1, v_idNum2, v_phone1, v_phone2, v_phone3, v_idNum, v_phone) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-//			pstmt = conn.prepareStatement(bigdata_insert);
-//			pstmt.setString(1, vaccine);
-//			pstmt.setString(2, name);
-//			pstmt.setString(3, idNum1);
-//			pstmt.setString(4, idNum2);
-//			pstmt.setString(5, phone1);
-//			pstmt.setString(6, phone2);
-//			pstmt.setString(7, phone3);
-//			pstmt.setString(8, idNum);
-//			pstmt.setString(9, phone);
-//			pstmt.executeUpdate();
-			
 			if(pstmt != null) pstmt.close();
 			if(rs != null) rs.close();
 			if(conn != null) conn.close();

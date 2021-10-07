@@ -47,12 +47,9 @@
 		if(pstmt != null) pstmt.close();
 		if(rs != null) rs.close();
 		if(conn != null) conn.close();
+		
+		response.sendRedirect("booking.jsp");
 	%>	
-	<script>
-			/* 안내문구 출력 후 booking.jsp로 이동 */
-			alert("예약이 취소되었습니다.");	
-			location.href="booking.jsp"
-	</script>
 	
 </body>
 </html>
