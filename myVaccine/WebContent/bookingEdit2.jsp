@@ -23,9 +23,9 @@
 		$('#showRes').trigger('click');
 		$("#showRes").bind('click', function() {
 			
-			document.findInst.target = 'ifrm';
-		    document.findInst.action = 'processInstEdit.jsp';
-		    document.findInst.submit();
+			document.findInstE.target = 'ifrm';
+		    document.findInstE.action = 'processInstEdit.jsp';
+		    document.findInstE.submit();
 			
 			if ($('.SearchResultArea').css('display') == 'none') {
 				$('.SearchResultArea').slideDown();
@@ -39,7 +39,7 @@
 
 		/* 아이프레임 내 form 값 submit */
 		$("#regButtonEdit").bind('click', function() {
-			$("#searchResultEdit").contents().find("#sendformBtn").trigger('click');
+			$("#searchResultEdit").contents().find("#sendformBtnE").trigger('click');
 			location.href="resultEdit.jsp"
 		});
 		
@@ -94,7 +94,7 @@
 					<div class="col-sm-8 offset-sm-2 findInstitution">
 						<div class="searchArea">
 				        	<div class="container-fluid">
-				        		<form name="findInst" id="findInst" method="post">
+				        		<form name="findInstE" id="findInstE" method="post">
 					        		<div class="form-group row datePicker">
 					        			<div class="col-sm-2 labelArea">
 											<label>날짜 선택<span class="require-mark">*</span></label>
@@ -152,12 +152,12 @@
 			        				}
 				        		%>
 				        		<div class="col-sm-4 instArea">
-				        			<iframe class="ifrm_left" name="ifrm_left" src="searchListEdit.jsp" id="searchList"></iframe>
+				        			<iframe class="ifrm_left" name="ifrm_left" src="searchListEdit.jsp" id="searchListEdit"></iframe>
 				        			
 				        		</div>
 				        		
 				        		<div class="col-sm-8 infoArea">
-				        			<iframe class="ifrm_right" name="ifrm_right" src="searchResultEdit.jsp" id="searchResult"></iframe>
+				        			<iframe class="ifrm_right" name="ifrm_right" src="searchResultEdit.jsp" id="searchResultEdit"></iframe>
 				        		</div>
 				        	</div>
 				        </div>

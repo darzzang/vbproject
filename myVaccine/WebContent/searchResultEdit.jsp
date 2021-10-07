@@ -168,7 +168,7 @@ console.log("input disabled test end");
 						</tbody>
 					</table>
 					
-					<input type="submit" value="submit" id="sendformBtn" style="display:none;">
+					<input type="submit" value="submit" id="sendformBtnE" style="display:none;">
 				</form>
 			</div>
 		</div>							

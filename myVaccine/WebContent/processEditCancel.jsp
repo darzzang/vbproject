@@ -15,9 +15,14 @@
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		//vac 가져오기 
+		//edit삭제
 		String deleteEdit = "delete from edit";
 		pstmt = conn.prepareStatement(deleteEdit);
+		pstmt.executeUpdate();
+		
+		//tmp3삭제
+		String deletetmp3 = "delete from tmpInstTBL3";
+		pstmt = conn.prepareStatement(deletetmp3);
 		pstmt.executeUpdate();
 		
 		if(pstmt != null) pstmt.close();
