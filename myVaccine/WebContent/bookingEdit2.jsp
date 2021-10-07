@@ -24,7 +24,7 @@
 		$("#showRes").bind('click', function() {
 			
 			document.findInst.target = 'ifrm';
-		    document.findInst.action = 'processInst.jsp';
+		    document.findInst.action = 'processInstEdit.jsp';
 		    document.findInst.submit();
 			
 			if ($('.SearchResultArea').css('display') == 'none') {
@@ -32,15 +32,15 @@
 			}
 			
 			/* 아이프레임 영역 새로고침 */
-		    document.getElementById("searchList").contentDocument.location.reload(true);
-		    document.getElementById("searchResult").contentDocument.location.reload(true);
+		    document.getElementById("searchListEdit").contentDocument.location.reload(true);
+		    document.getElementById("searchResultEdit").contentDocument.location.reload(true);
 		});
 		
 
 		/* 아이프레임 내 form 값 submit */
-		$("#regButton").bind('click', function() {
-			$("#searchResult").contents().find("#sendformBtn").trigger('click');
-			location.href="result.jsp"
+		$("#regButtonEdit").bind('click', function() {
+			$("#searchResultEdit").contents().find("#sendformBtn").trigger('click');
+			location.href="resultEdit.jsp"
 		});
 		
 	});
@@ -152,12 +152,12 @@
 			        				}
 				        		%>
 				        		<div class="col-sm-4 instArea">
-				        			<iframe class="ifrm_left" name="ifrm_left" src="searchList.jsp" id="searchList"></iframe>
+				        			<iframe class="ifrm_left" name="ifrm_left" src="searchListEdit.jsp" id="searchList"></iframe>
 				        			
 				        		</div>
 				        		
 				        		<div class="col-sm-8 infoArea">
-				        			<iframe class="ifrm_right" name="ifrm_right" src="searchResult.jsp" id="searchResult"></iframe>
+				        			<iframe class="ifrm_right" name="ifrm_right" src="searchResultEdit.jsp" id="searchResult"></iframe>
 				        		</div>
 				        	</div>
 				        </div>
@@ -165,7 +165,7 @@
 				        <div class="btnArea">
 							<ul class="row justify-content-center">
 								<li class="col-3">
-									<button class="btn bookingBtn" id="regButton">예약</button>
+									<button class="btn bookingBtn" id="regButtonEdit">예약</button>
 								</li>
 								<li class="col-3">
 									<form action = "processEditCancel.jsp" method="post">

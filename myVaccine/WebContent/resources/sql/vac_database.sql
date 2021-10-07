@@ -43,6 +43,7 @@ create table if not exists edit(
 	p_instName VARCHAR(50),
 	p_instPhone VARCHAR(20),
 	p_instWorkHour TEXT,
+	vac_time TIME,
 	primary key(v_phone)
 )default CHARSET=utf8;
 
