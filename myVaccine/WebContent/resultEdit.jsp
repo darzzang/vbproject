@@ -10,7 +10,14 @@
 <jsp:include page="include/head.jsp">
 	<jsp:param name="title" value="백신예약: 예약완료" />
 </jsp:include>
-
+<script>
+//페이지 새로고침
+if (self.name != 'reload') {
+    self.name = 'reload';
+    self.location.reload(true);
+}
+else self.name = '';
+</script>
 
 <body>
 	<div class="wrapper">
@@ -101,7 +108,9 @@
 								</tr>
 								<%
 									}
-
+									pstmt = null;
+									rs = null;
+									
 									String sql3 = "select p_instName, p_instAddress1, p_instAddress2, p_instAddress3, p_instAddress4, p_appDate, date_format(vac_time, '%H:%i') from tmpInstTBL3";
 									pstmt = conn.prepareStatement(sql3);
 									rs = pstmt.executeQuery();
