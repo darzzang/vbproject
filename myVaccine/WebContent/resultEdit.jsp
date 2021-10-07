@@ -102,8 +102,8 @@
 								<%
 									}
 
-									String sql2 = "select p_instName, p_instAddress1, p_instAddress2, p_instAddress3, p_instAddress4, p_appDate, date_format(vac_time, '%H:%i') from tmpInstTBL3";
-									pstmt = conn.prepareStatement(sql2);
+									String sql3 = "select p_instName, p_instAddress1, p_instAddress2, p_instAddress3, p_instAddress4, p_appDate, date_format(vac_time, '%H:%i') from tmpInstTBL3";
+									pstmt = conn.prepareStatement(sql3);
 									rs = pstmt.executeQuery();
 									while (rs.next()){
 										String instName = rs.getString("p_instName");
