@@ -10,18 +10,7 @@
 <jsp:include page="include/head.jsp">
 	<jsp:param name="title" value="백신예약: 예약 수정" />
 </jsp:include>
-<script type="text/javascript" src="./resources/js/validation.js">
-function button_editcancel(){
-	if (confirm("예약 수정을 취소하시겠습니까??") == true){    //확인
-	    document.cancel.action = 'processEditCancel.jsp';
-		document.cancel.submit();
-		alert("수정을 취소하였습니다.");
-	}else{   //취소
-	    return;
-	}
-}
-</script>
-
+<script type="text/javascript" src="./resources/js/validation.js"></script>
 
 <body>
 	<div class="wrapper">
@@ -151,7 +140,7 @@ function button_editcancel(){
 							<div class="btnArea">
 								<ul class="row justify-content-center">
 									<li class="col-3"><input type="submit" class="btn bookingBtn" value="다음" onclick="checkBooking()"></li>
-									<li class="col-3"><a href="processEditCancel.jsp" class="btn btn-outline-secondary">취소</a></li>
+									<li class="col-3"><a href="processEditcancel1.jsp" class="btn btn-outline-secondary">취소</a></li>
 								</ul>
 							</div>
 							<%
