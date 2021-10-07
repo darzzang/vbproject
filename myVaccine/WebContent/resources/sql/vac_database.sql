@@ -84,6 +84,7 @@ create table if not exists bigdata(
 
 drop table bigdata;
 delete from bigdata;
+delete from data;
 delete from data where v_phone = '01111111111';
 select * from data where v_phone = '01111111111';
 insert into vac values('pakf');

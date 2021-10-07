@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="dbconn.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,27 +56,86 @@ else self.name = '';
 console.log("input disabled test start");
 $(document).ready(function(){
 	var arrList = $(".timeSelectArea tbody tr td");
+	var mdnArray = []; // 모더나 잔여량/총량 배열
+	var pfzrArray = []; // 화이자 잔여량/총량 배열
+	var i = 0;
+	<%
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
 	
+	String vaccine = "select v_vaccine from vac";
+	pstmt = conn.prepareStatement(vaccine);
+	rs = pstmt.executeQuery();
+	
+	if(rs.next()){
+		String vac = rs.getString("v_vaccine");
+	%>	
+	
+	var vac = "<%=vac%>";
+	console.log(vac);
+	
+	// 모더나와 화이자 백신 잔여량/총량 배열 생성
 	$.each(arrList, function(index, item){
-		var vac = $(item).text();
-		var strArray = vac.split('/');
 		
-		if(strArray[0] % strArray[1] == 0){
-			$(this).parent().children("th").find("input").attr("disabled", true);
-			$(this).parent().children("th").find("label").addClass("disabled");
+		var vaccine = $(item).text();
+		var strArray = vaccine.split(' / '); 
+		
+		if(index%2 == 0){ // 짝수일 때
+			mdnArray.push(strArray); // 모더나
+		}else{
+			pfzrArray.push(strArray); // 화이자
 		}
-	});
+		
+		console.log(vac);
+		
+		if(vac === "Moderna"){
+			for(i = 0; i < mdnArray.length; i++){
+				var mdnRest = mdnArray[i][0];
+				if(mdnRest === "0"){ // 모더나 배열에서 잔여량이 0일 때
+					console.log(mdnRest + " 모더나 배열 내 요소 값이 0일 때");
+					$(this).parent().children("th").find("input").attr("disabled", true);
+					$(this).parent().children("th").find("label").addClass("disabled");
+					console.log("모더나 배열 내 요소 값이 0일 때 disabled");
+				}else{
+					console.log(mdnRest + " 모더나 배열 내 요소 값이 0이 아닐 때");
+					$(this).parent().children("th").find("input").attr("disabled", false);
+					$(this).parent().children("th").find("label").removeClass("disabled");
+				}	
+			}
+		} else if(vac === "Pfizer") {
+			for(i = 0; i < pfzrArray.length; i++){
+				var pfzrRest = pfzrArray[i][0];
+				if(pfzrRest === "0"){ // 화이자 배열에서 잔여량이 0일 때
+					console.log(pfzrRest + " 화이자 배열 내 요소 값이 0일 때");
+					$(this).parent().children("th").find("input").attr("disabled", true);
+					$(this).parent().children("th").find("label").addClass("disabled");
+					console.log("화이자 배열 내 요소 값이 0일 때 disabled");
+				}else{
+					console.log(pfzrRest + " 화이자 배열 내 요소 값이 0이 아닐 때");
+					$(this).parent().children("th").find("input").attr("disabled", false);
+					$(this).parent().children("th").find("label").removeClass("disabled");
+				}	
+			}
+		}
+		
+		
+	});		
+	<%
+		}
+	%>	
+
+	!console.table(mdnArray);
+	!console.table(pfzrArray);
 });
 console.log("input disabled test end");
 </script>
 </head>
 <body class="infoArea">
-	<%@ include file="dbconn.jsp" %>
 	<%
 		String id = request.getParameter("id");
 		
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+		pstmt = null;
+		rs = null;
 		
 		String sql = "select * from tmpInstTBL";
 		pstmt = conn.prepareStatement(sql);

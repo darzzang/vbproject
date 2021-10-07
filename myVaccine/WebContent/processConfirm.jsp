@@ -76,8 +76,6 @@
 			if(pstmt != null) pstmt.close();
 			if(rs != null) rs.close();
 			if(conn != null) conn.close();
-
-			response.sendRedirect("result2.jsp");
 	%>
 	<script>
 			/* 안내문구 출력 후 booking.jsp로 이동 */
