@@ -17,22 +17,22 @@ alter table vaccine add foreign key(vac_inst) references institution(p_instName)
 /* 테스트를 위한 데이터 입력 */
 insert into vaccine values('동구보건소', '09:00:00', 30, 25, 30, 27);
 insert into vaccine values('동구보건소', '10:00:00', 30, 13, 30, 29);
-insert into vaccine values('동구보건소', '11:00:00', 30, 30, 30, 30);
-insert into vaccine values('동구보건소', '12:00:00', 30, 30, 30, 30);
-insert into vaccine values('동구보건소', '13:00:00', 30, 30, 30, 30);
-insert into vaccine values('동구보건소', '14:00:00', 30, 30, 30, 30);
-insert into vaccine values('동구보건소', '15:00:00', 30, 30, 30, 30);
-insert into vaccine values('동구보건소', '16:00:00', 30, 30, 30, 30);
-insert into vaccine values('동구보건소', '17:00:00', 30, 30, 30, 30);
-insert into vaccine values('동구보건소', '18:00:00', 30, 30, 30, 30);
+insert into vaccine values('동구보건소', '11:00:00', 30, 0, 30, 0);
+insert into vaccine values('동구보건소', '12:00:00', 30, 11, 30, 2);
+insert into vaccine values('동구보건소', '13:00:00', 30, 0, 30, 0);
+insert into vaccine values('동구보건소', '14:00:00', 30, 0, 30, 0);
+insert into vaccine values('동구보건소', '15:00:00', 30, 0, 30, 0);
+insert into vaccine values('동구보건소', '16:00:00', 30, 0, 30, 0);
+insert into vaccine values('동구보건소', '17:00:00', 30, 0, 30, 0);
+insert into vaccine values('동구보건소', '18:00:00', 30, 0, 30, 0);
 
 insert into vaccine values('동구 예방접종센터', '09:00:00', 30, 25, 30, 23);
 insert into vaccine values('동구 예방접종센터', '10:00:00', 30, 11, 30, 29);
-insert into vaccine values('동구 예방접종센터', '11:00:00', 30, 30, 30, 30);
-insert into vaccine values('동구 예방접종센터', '12:00:00', 30, 30, 30, 30);
-insert into vaccine values('동구 예방접종센터', '13:00:00', 30, 30, 30, 30);
-insert into vaccine values('동구 예방접종센터', '14:00:00', 30, 30, 30, 30);
-insert into vaccine values('동구 예방접종센터', '15:00:00', 30, 30, 30, 30);
-insert into vaccine values('동구 예방접종센터', '16:00:00', 30, 30, 30, 30);
-insert into vaccine values('동구 예방접종센터', '17:00:00', 30, 30, 30, 30);
-insert into vaccine values('동구 예방접종센터', '18:00:00', 30, 30, 30, 30);
+insert into vaccine values('동구 예방접종센터', '11:00:00', 30, 0, 30, 0);
+insert into vaccine values('동구 예방접종센터', '12:00:00', 30, 0, 30, 0);
+insert into vaccine values('동구 예방접종센터', '13:00:00', 30, 0, 30, 0);
+insert into vaccine values('동구 예방접종센터', '14:00:00', 30, 0, 30, 3);
+insert into vaccine values('동구 예방접종센터', '15:00:00', 30, 0, 30, 0);
+insert into vaccine values('동구 예방접종센터', '16:00:00', 30, 2, 30, 0);
+insert into vaccine values('동구 예방접종센터', '17:00:00', 30, 0, 30, 0);
+insert into vaccine values('동구 예방접종센터', '18:00:00', 30, 0, 30, 0);
