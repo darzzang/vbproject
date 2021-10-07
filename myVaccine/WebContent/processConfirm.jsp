@@ -79,6 +79,10 @@
 
 			response.sendRedirect("result2.jsp");
 	%>
-	
+	<script>
+			/* 안내문구 출력 후 booking.jsp로 이동 */
+			alert("예약이 완료되었습니다.");	
+			location.href="result2.jsp"
+	</script>
 </body>
 </html>
