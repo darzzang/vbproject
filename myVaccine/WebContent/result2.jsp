@@ -10,7 +10,24 @@
 <jsp:include page="include/head.jsp">
 	<jsp:param name="title" value="백신예약: 예약 수정" />
 </jsp:include>
+<script>
+//페이지 새로고침
+if (self.name != 'reload') {
+    self.name = 'reload';
+    self.location.reload(true);
+}
+else self.name = '';
 
+function button_cancel(){
+	if (confirm("정말 취소하시겠습니까??") == true){    //확인
+	    document.cancel.action = 'processCancel.jsp';
+		document.cancel.submit();
+		alert("예약을 취소하였습니다.");
+	}else{   //취소
+	    return;
+	}
+}
+</script>
 
 <body>
 	<div class="wrapper">
@@ -141,7 +158,7 @@
 					<div class="col-sm-8 offset-sm-2 btnArea">
 						<ul class="row justify-content-center">
 							<li class="col-3"><form action = "bookingEdit.jsp" method="post"><button class="btn btn-default">수정</button></form></li>
-							<li class="col-3"><form action = "processCancel.jsp" method="post"><button class="btn btn-secondary">취소</button></form></li>
+							<li class="col-3"><form name="cancel" id="cancel" method="post"><button class="btn btn-secondary" onclick="button_cancel()">취소</button></form></li>
 						</ul>
 					</div>
 				</div>

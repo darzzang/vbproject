@@ -36,7 +36,6 @@
 		    document.getElementById("searchResult").contentDocument.location.reload(true);
 		});
 		
-
 		/* 아이프레임 내 form 값 submit */
 		$("#regButton").bind('click', function() {
 			$("#searchResult").contents().find("#sendformBtn").trigger('click');
@@ -44,7 +43,15 @@
 		});
 		
 	});
-	
+	function button_cancel(){
+		if (confirm("정말 취소하시겠습니까??") == true){    //확인
+		    document.cancel.action = 'processCancel.jsp';
+			document.cancel.submit();
+			alert("예약을 취소하였습니다.");
+		}else{   //취소
+		    return;
+		}
+	}
 </script>
 
 
@@ -84,7 +91,7 @@
 							</li>
 							<li class="">
 								<span class="smText">STEP 03.</span>
-								<span class="lgText">예약 내용 확인</span>
+								<span class="lgText">예약 결과 확인</span>
 							</li>
 						</ul>
 					</div>
@@ -165,11 +172,11 @@
 				        <div class="btnArea">
 							<ul class="row justify-content-center">
 								<li class="col-3">
-									<button class="btn bookingBtn" id="regButton">다음</button>
+									<button class="btn bookingBtn" id="regButton">예약</button>
 								</li>
 								<li class="col-3">
-									<form action = "processCancel.jsp" method="post">
-										<button class="btn btn-outline-secondary">취소</button>
+									<form name="cancel" id="cancel" method="post">
+										<button class="btn btn-outline-secondary" onclick="button_cancel()">취소</button>
 									</form>
 								</li>
 							</ul>
