@@ -28,12 +28,8 @@
 		if(pstmt != null) pstmt.close();
 		if(rs != null) rs.close();
 		if(conn != null) conn.close();
-	%>	
-	<script>
-			/* 안내문구 출력 후 booking.jsp로 이동 */
-			alert("수정이 취소되었습니다.");	
-			location.href="result2.jsp"
-	</script>
-	
+		
+		response.sendRedirect("result2.jsp");
+	%>		
 </body>
 </html>
