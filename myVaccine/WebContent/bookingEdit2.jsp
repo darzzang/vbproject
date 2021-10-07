@@ -7,7 +7,7 @@
 
 <!-- head 영역 -->    
 <jsp:include page="include/head.jsp">
-	<jsp:param name="title" value="백신예약: 예약하기" />
+	<jsp:param name="title" value="백신예약: 예약 수정" />
 </jsp:include>
 
 
@@ -57,7 +57,7 @@
 		<div class="visualArea">
 			<div class="dimArea"></div>
 			<div class="container">
-				<h1 class="move-up">예약하기</h1>
+				<h1 class="move-up">예약 수정</h1>
 			</div>
 		</div>
 		
@@ -84,7 +84,7 @@
 							</li>
 							<li class="">
 								<span class="smText">STEP 03.</span>
-								<span class="lgText">예약 결과 확인</span>
+								<span class="lgText">예약 내용 확인</span>
 							</li>
 						</ul>
 					</div>
@@ -165,7 +165,7 @@
 				        <div class="btnArea">
 							<ul class="row justify-content-center">
 								<li class="col-3">
-									<button class="btn bookingBtn" id="regButtonEdit">예약</button>
+									<button class="btn bookingBtn" id="regButtonEdit">다음</button>
 								</li>
 								<li class="col-3">
 									<form action = "processEditCancel.jsp" method="post">

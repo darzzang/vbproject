@@ -8,7 +8,7 @@
 
 <!-- head 영역 -->    
 <jsp:include page="include/head.jsp">
-	<jsp:param name="title" value="백신예약: 예약완료" />
+	<jsp:param name="title" value="백신예약: 예약하기" />
 </jsp:include>
 <script>
 //페이지 새로고침
@@ -28,7 +28,7 @@ else self.name = '';
 		<div class="visualArea">
 			<div class="dimArea"></div>
 			<div class="container">
-				<h1 class="move-up">예약 완료</h1>
+				<h1 class="move-up">예약하기</h1>
 			</div>
 		</div>
 		
@@ -51,7 +51,7 @@ else self.name = '';
 							</li>
 							<li class="active">
 								<span class="smText">STEP 03.</span>
-								<span class="lgText">예약 결과 확인</span>
+								<span class="lgText">예약 내용 확인</span>
 							</li>
 						</ul>
 					</div>
@@ -148,7 +148,7 @@ else self.name = '';
 					<!-- 페이지 구성 시 필요없는 버튼이 있으면 li 삭제 -->
 					<div class="col-sm-8 offset-sm-2 btnArea">
 						<ul class="row justify-content-center">
-							<li class="col-3"><form action = "processConfirm.jsp" method="post"><button class="btn btn-default">확인</button></form></li>
+							<li class="col-3"><form action = "processConfirm.jsp" method="post"><button class="btn btn-default">예약 확정</button></form></li>
 							<li class="col-3"><form action = "processCancel.jsp" method="post"><button class="btn btn-secondary">취소</button></form></li>
 						</ul>
 					</div>

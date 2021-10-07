@@ -27,7 +27,7 @@
 			<div class="container">
 				<div class="row">
 					<form action = "processChecking.jsp" method = "post">
-						<div class="loginArea col-sm-6 offset-sm-3">
+						<div class="loginArea col-xl-6 col-lg-6 offset-xl-3 offset-lg-3">
 							<div class="form-group row">
 								<div class="col-sm-3 labelArea">
 									<label>휴대폰 번호</label>

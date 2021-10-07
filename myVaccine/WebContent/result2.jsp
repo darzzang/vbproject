@@ -8,7 +8,7 @@
 
 <!-- head 영역 -->    
 <jsp:include page="include/head.jsp">
-	<jsp:param name="title" value="백신예약: 예약완료" />
+	<jsp:param name="title" value="백신예약: 예약 수정" />
 </jsp:include>
 
 
@@ -21,7 +21,7 @@
 		<div class="visualArea">
 			<div class="dimArea"></div>
 			<div class="container">
-				<h1 class="move-up">예약 완료</h1>
+				<h1 class="move-up">예약 수정</h1>
 			</div>
 		</div>
 		
@@ -44,7 +44,7 @@
 							</li>
 							<li class="active">
 								<span class="smText">STEP 03.</span>
-								<span class="lgText">예약 결과 확인</span>
+								<span class="lgText">예약 내용 확인</span>
 							</li>
 						</ul>
 					</div>
