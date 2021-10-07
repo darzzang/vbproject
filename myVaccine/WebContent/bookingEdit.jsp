@@ -10,7 +10,17 @@
 <jsp:include page="include/head.jsp">
 	<jsp:param name="title" value="백신예약: 예약 수정" />
 </jsp:include>
-<script type="text/javascript" src="./resources/js/validation.js"></script>
+<script type="text/javascript" src="./resources/js/validation.js">
+function button_editcancel(){
+	if (confirm("예약 수정을 취소하시겠습니까??") == true){    //확인
+	    document.cancel.action = 'processEditCancel.jsp';
+		document.cancel.submit();
+		alert("수정을 취소하였습니다.");
+	}else{   //취소
+	    return;
+	}
+}
+</script>
 
 
 <body>
