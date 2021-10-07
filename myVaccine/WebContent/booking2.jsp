@@ -84,7 +84,7 @@
 							</li>
 							<li class="">
 								<span class="smText">STEP 03.</span>
-								<span class="lgText">예약 결과 확인</span>
+								<span class="lgText">예약 내용 확인</span>
 							</li>
 						</ul>
 					</div>
@@ -165,7 +165,7 @@
 				        <div class="btnArea">
 							<ul class="row justify-content-center">
 								<li class="col-3">
-									<button class="btn bookingBtn" id="regButton">예약</button>
+									<button class="btn bookingBtn" id="regButton">다음</button>
 								</li>
 								<li class="col-3">
 									<form action = "processCancel.jsp" method="post">

@@ -46,7 +46,7 @@
 							</li>
 							<li class="">
 								<span class="smText">STEP 03.</span>
-								<span class="lgText">예약 결과 확인</span>
+								<span class="lgText">예약 내용 확인</span>
 							</li>
 						</ul>
 					</div>
@@ -115,19 +115,6 @@
 									<p class="alertText" id="phnError">* 휴대폰 번호를 정확하게 입력하세요</p>
 								</div>
 							</div>
-							<!-- <div class="form-group row">
-								<div class="col-sm-4 labelArea">
-									<label>의료기관 및 예약일시 선택<span class="require-mark">*</span></label>
-								</div>
-								<div class="col-sm-8 inputArea">
-									<input type="button" data-bs-toggle="modal" data-bs-target="#bookingModal" class="btn btn-outline-default" value="의료기관 찾기">
-									선택 후 출력될 텍스트
-									<ul class="resultText">
-										<li>예약일시: 2021.08.30</li>
-										<li>선택된 의료기관: 영진보건소</li>
-									</ul>
-								</div>
-							</div> -->
 							
 							<div class="btnArea">
 								<ul class="row justify-content-center">

@@ -8,7 +8,7 @@
 
 <!-- head 영역 -->    
 <jsp:include page="include/head.jsp">
-	<jsp:param name="title" value="백신예약: 예약하기" />
+	<jsp:param name="title" value="백신예약: 예약 수정" />
 </jsp:include>
 <script type="text/javascript" src="./resources/js/validation.js"></script>
 
@@ -48,7 +48,7 @@
 							</li>
 							<li class="">
 								<span class="smText">STEP 03.</span>
-								<span class="lgText">예약 결과 확인</span>
+								<span class="lgText">예약 내용 확인</span>
 							</li>
 						</ul>
 					</div>
